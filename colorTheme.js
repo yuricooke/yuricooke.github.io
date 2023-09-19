@@ -15,13 +15,13 @@ const generateRandomColor = () => {
   return `#${randColor.toUpperCase()}`;
 };
 
+let palette;
+
 const themeColors = () => {
   let neutral = generateNeutralColor();
   let primary = generateRandomColor();
   let accent = generateRandomColor();
 
-  updateThemeColors(neutral, primary, accent);
-  newPalette(neutral, primary, accent);
 
   document.getElementById("neutral").textContent = neutral;
   document.getElementById("primary").textContent = primary;
@@ -30,24 +30,46 @@ const themeColors = () => {
   console.log("neutral color:", neutral);
   console.log("primary color:", primary);
   console.log("accent color:", accent);
+
+  palette = setThemeColors(neutral, primary, accent);
+
 };
 
-const newPalette = (neutral, primary, accent) => {
-  let neutralPalette = neutral;
-  let primaryPalette = primary;
-  let accentPalette = accent;
+const setThemeColors = (neutral, primary, accent) => {
 
-  palette = [neutralPalette, primaryPalette, accentPalette];
+  const root = document.documentElement;
+  root.style.setProperty("--neutral", neutral);
+  root.style.setProperty("--primary", primary);
+  root.style.setProperty("--accent", accent);
 
-  console.log("Palette Array: ", palette);
+  const neutralContrast = calculateContrastColor(neutral);
+  const primaryContrast = calculateContrastColor(primary);
+  const accentContrast = calculateContrastColor(accent);
 
-  return palette;
+  root.style.setProperty("--neutral-contrast", neutralContrast);
+  root.style.setProperty("--primary-contrast", primaryContrast);
+  root.style.setProperty("--accent-contrast", accentContrast);
+
+  console.log("colors in CSS!");
+  
+  newPalette(neutral, primary, accent);
+  let palette = [neutral, primary, accent];
+  console.log("Palette from setThemeColors: ", palette);
+
+
+  return [neutral, primary, accent]; // Return the palette as an array
 };
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   themeColors();
-  newPalette();
+
+  const saveButton = document.getElementById("savePaletteButton");
+  saveButton.addEventListener("click", () => {
+    savePalette(palette[0], palette[1], palette[2]);
+  });
 });
+
+
 
 document.addEventListener("keydown", (event) => {
   if (event.code === "Space") {
@@ -67,20 +89,13 @@ const calculateContrastColor = (color) => {
 };
 
 
+const newPalette = (neutral, primary, accent) => {
 
-const updateThemeColors = (neutral, primary, accent) => {
-  const root = document.documentElement;
-  root.style.setProperty("--neutral", neutral);
-  root.style.setProperty("--primary", primary);
-  root.style.setProperty("--accent", accent);
+  let paletteNeutral = neutral;
+  let palettePrimary = primary;
+  let paletteAccent = accent;
 
-  const neutralContrast = calculateContrastColor(neutral);
-  const primaryContrast = calculateContrastColor(primary);
-  const accentContrast = calculateContrastColor(accent);
+  let palette = [paletteNeutral, palettePrimary, paletteAccent];
 
-  root.style.setProperty("--neutral-contrast", neutralContrast);
-  root.style.setProperty("--primary-contrast", primaryContrast);
-  root.style.setProperty("--accent-contrast", accentContrast);
-
-  console.log("colors updated!");
+  return palette;
 };

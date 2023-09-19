@@ -199,7 +199,7 @@ const createColorSelect = (row) => {
 };
 
 
-//removendo item da lista
+//REMOVER ITEM DA LISTA
 
 const removeElement = () => {
   let close = document.getElementsByClassName("close");
@@ -223,4 +223,141 @@ const insertCloseButton = (parent) => {
   span.className = "close";
   span.appendChild(txt);
   parent.appendChild(span);
+};
+
+
+
+/* FUNÇÕES PARA A PALETA */
+
+
+
+const savePalette = (paletteNeutral, palettePrimary, paletteAccent) => {
+  // Prompt the user for a palette name
+  const paletteName = prompt("Insira um nome para a paleta:");
+  if (!paletteName) {
+    alert("Insira um nome válido.");
+    return;
+  }
+
+  // Display success alert before proceeding
+  alert(`Paleta ${paletteName} salva com sucesso!`);
+
+  // Chame a função para inserir a cor e nome na lista no front
+  insertPaletteList(paletteName, paletteNeutral, palettePrimary, paletteAccent);
+  // Chame a função para inserir a cor e nome na lista no back
+  postPaletteItem(paletteName, paletteNeutral, palettePrimary, paletteAccent);
+};
+
+const insertPaletteList = (paletteName, paletteNeutral, palettePrimary, paletteAccent) => {
+  let paletteList = [paletteName, paletteNeutral, palettePrimary, paletteAccent];
+  console.log("Inserindo na lista:", paletteList);
+
+  var item = [paletteName, paletteNeutral, palettePrimary, paletteAccent];
+  var table = document.getElementById("myPaletteTable");
+  var row = table.insertRow();
+
+  // Create a container div for the colored bars
+  var colorBarsContainer = document.createElement("div");
+  colorBarsContainer.className = "color-bars-container";
+  
+  // Create a div for the neutral color bar
+  var neutralColorBar = createColorBar(paletteNeutral, "neutral-bar");
+  
+  // Create a div for the primary color bar
+  var primaryColorBar = createColorBar(palettePrimary, "primary-bar");
+  
+  // Create a div for the accent color bar
+  var accentColorBar = createColorBar(paletteAccent, "accent-bar");
+  
+  // Append the color bars to the container
+  colorBarsContainer.appendChild(neutralColorBar);
+  colorBarsContainer.appendChild(primaryColorBar);
+  colorBarsContainer.appendChild(accentColorBar);
+
+  // Insert the container with color bars in the first cell
+  var colorBarsCell = row.insertCell(0);
+  colorBarsCell.appendChild(colorBarsContainer);
+
+  // Insert "Nome" in the second cell (index 1)
+  var nomeCell = row.insertCell(1);
+  nomeCell.textContent = item[0];
+
+  // Insert "Neutral" in the third cell (index 2)
+  var neutralCell = row.insertCell(2);
+  neutralCell.textContent = item[1];
+
+  // Insert "primary" in the fourth cell (index 3)
+  var primaryCell = row.insertCell(3);
+  primaryCell.textContent = item[2];
+
+  // Insert "accent" in the fifth cell (index 4)
+  var accentCell = row.insertCell(4);
+  accentCell.textContent = item[3];
+
+  // Insert delete button in the last cell (index 5)
+  insertPaletteCloseButton(row.insertCell(5));
+
+  // Insert "SelectPalette" button in the sixth cell (index -1)
+  var selectPaletteCell = row.insertCell(-1);
+  var selectPaletteButton = document.createElement("button");
+  selectPaletteButton.textContent = "Selecionar";
+  selectPaletteButton.className = "select-palette-button"; // Add a class here
+
+  selectPaletteButton.addEventListener("click", () => {
+    handleSelectPalette(row); // Pass the row to the handler
+  });
+  selectPaletteCell.appendChild(selectPaletteButton);
+
+  removePaletteElement();
+};
+
+// Function to create a colored bar
+const createColorBar = (color, cssClass) => {
+  var colorBar = document.createElement("div");
+  colorBar.className = `color-bar ${cssClass}`;
+  colorBar.style.backgroundColor = color;
+  return colorBar;
+};
+
+
+
+
+
+const handleSelectPalette = (row) => {
+  // Retrieve the palette values from the row
+  const paletteName = row.cells[1].textContent;
+  const paletteNeutral = row.cells[2].textContent;
+  const palettePrimary = row.cells[3].textContent;
+  const paletteAccent = row.cells[4].textContent;
+
+  // Call setThemeColors with the retrieved palette values
+  setThemeColors(paletteNeutral, palettePrimary, paletteAccent);
+};
+
+
+
+const removePaletteElement = () => {
+  let close = document.getElementsByClassName("closePaletteItem");
+  // var table = document.getElementById('myTable');
+  let i;
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+      let div = this.parentElement.parentElement;
+      const nomeItem = div.getElementsByTagName("td")[1].innerHTML;
+      if (confirm("Você tem certeza?")) {
+        div.remove();
+        deletePaletteItem(nomeItem);
+        alert("Removido!");
+      }
+    };
+  }
+};
+const insertPaletteCloseButton = (parent) => {
+  let span = document.createElement("span");
+  let txt = document.createTextNode("\u00D7");
+  span.className = "closePaletteItem";
+  span.appendChild(txt);
+  parent.appendChild(span);
+
+  
 };

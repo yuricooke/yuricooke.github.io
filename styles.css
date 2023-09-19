@@ -312,6 +312,7 @@ HERO
 .accordion-button {
   color: var(--primary);
   background-color: var(--neutral);
+  font-size: 1.2rem;
   
 }
 
@@ -330,15 +331,15 @@ HERO
 
 .palette-display{
   position: relative;
-  
-
 }
-
+.palette-display h5, h4{
+    font-family: Armata;
+}
 .custom-width {
   flex: 1;
   align-items: center;
-  padding-top: 10%;
-  height: 30vh;
+  padding-top: 7%;
+  padding-bottom: 7%;
   max-width: 100%;
   transition: all 0.3s ease; /* Adicione uma transição suave para a mudança de largura */
   position: relative;
@@ -363,7 +364,7 @@ HERO
   max-width: 60%;
   z-index: 2; /* Aumente o z-index para 2 ao passar o mouse, fazendo com que ela apareça acima das outras */
 }
-select {
+select, .select-palette-button {
   color: var(--accent);
   background-color: var(--neutral);
   border-color: var(--accent);
@@ -373,11 +374,13 @@ select {
   border-width: 1px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3) ;
 }
-select:hover {
+select:hover, .select-palette-button:hover {
   color: var(--accent-contrast);
   background-color: var(--accent);
   border-color: var(--accent);
 }
+
+
 
 .btn-outline-accent {
   color: var(--accent);
@@ -413,6 +416,4 @@ select:hover {
   max-width: 33%;
 }
 
-
-  
 }

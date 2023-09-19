@@ -25,7 +25,7 @@
             Generator</strong></h1>
       </div>
       <div class="row">
-        <div class="col-lg-6 shadow p-0" >
+        <div class="col-lg-7 shadow p-0" >
           <div class="container-fluid neutral px-0 scrollable-column">
 
             <div class="palette-display shadow">
@@ -33,91 +33,71 @@
                 <div class="custom-width neutral">
                   <div> <!-- Div interna para conter o conteúdo -->
                     <h5 id="neutral" onclick="editColor('neutral')"></h5>
-                    <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="saveColor('--neutral')"><span
-                        class="material-symbols-outlined">favorite</span></button>
+                    <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="editColor('neutral')" title="editar"><span class="material-symbols-outlined">
+                      edit
+                      </span></button>
+                    
                     <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="changeColor('neutral')"
                       title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
+
+                      <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="saveColor('--neutral')" title="salvar"><span
+                        class="material-symbols-outlined">favorite</span></button>
+                      <hr class="mx-5">
+                    <h4>60%</h4>
+                    <h5>NEUTRAL</h5>
                   </div>
                 </div>
                 <div class="custom-width primary">
                   <div> <!-- Div interna para conter o conteúdo -->
                     <h5 id="primary" onclick="editColor('primary')"></h5>
-                    <button class="btn btn-sm rounded-pill btn-tools primary" onclick="saveColor('--primary')"><span
-                        class="material-symbols-outlined">favorite</span></button>
+                    <button class="btn btn-sm rounded-pill btn-tools primary" onclick="editColor('primary')" title="editar"><span class="material-symbols-outlined">
+                      edit
+                      </span></button>
+                    
                     <button class="btn btn-sm rounded-pill btn-tools primary" onclick="changeColor('primary')"
                       title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
+                      <button class="btn btn-sm rounded-pill btn-tools primary" onclick="saveColor('--primary')"><span
+                        class="material-symbols-outlined">favorite</span></button>
+                      <hr class="mx-5">
+                      <h4>30%</h4>
+                      <h5>PRIMARY</h5>
                   </div>
                 </div>
                 <div class="custom-width accent">
                   <div> <!-- Div interna para conter o conteúdo -->
                     <h5 id="accent" onclick="editColor('accent')"></h5>
-                    <button class="btn btn-sm rounded-pill btn-tools accent" onclick="saveColor('--accent')"><span
-                        class="material-symbols-outlined">favorite</span></button>
-                    <button class="btn btn-sm rounded-pill btn-tools accent" onclick="changeColor('accent')"
+                    <nobr><button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="editColor('accent')" title="editar"><span class="material-symbols-outlined">
+                      edit
+                      </span></button>
+                    
+                    <button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="changeColor('accent')"
                       title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
+                      <button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="saveColor('--accent')"><span
+                        class="material-symbols-outlined">favorite</span></button></nobr>
+                      <hr class="mx-5">
+                      <h4>10%</h4>
+                      <h5>ACCENT</h5>
                   </div>
                 </div>
               </div>
             </div>
+            
             <div class="row p-lg-5">
+              <div class="row d-flex justify-content-end">
+                <p>Use a barra de espaço para gerar uma nova paleta</p>
+              </div>
               <div class="row text-center d-flex justify-content-between align-items-center">
-
-
-
-
-
-                <!--
-                <div class="col-lg-3">
-                  <div class="card  rounded p-1 bg-white">
-                    <div class="card-color neutral">
-                      <h4 id="neutral" onclick="editColor('neutral')"></h4>
-                    </div>
-                  </div>
-                  <div class="my-3">
-                    <button class="btn rounded-pill btn-tools" onclick="saveColor('--neutral')"><span
-                        class="material-symbols-outlined">favorite</span></button>
-                    <button class="btn rounded-pill btn-tools text-primary" onclick="changeColor('neutral')"
-                      title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="card rounded  p-1 bg-white">
-                    <div class="card-color primary">
-                      <h4 id="primary" onclick="editColor('primary')"></h4>
-                    </div>
-                  </div>
-                  <div class="my-3">
-                    <button class="btn rounded-pill btn-tools" onclick="saveColor('--primary')"><span
-                        class="material-symbols-outlined">favorite</span></button>
-                    <button class="btn rounded-pill btn-tools text-primary" onclick="changeColor('primary')"><span
-                        class="material-symbols-outlined">rotate_left</span></button>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="card rounded  p-1 bg-white">
-                    <div class="card-color accent">
-                      <h4 id="accent" onclick="editColor('accent')"></h4>
-                    </div>
-                  </div>
-                  <div class="my-3">
-                    <button class="btn rounded-pill btn-tools" onclick="saveColor('--accent')"><span
-                        class="material-symbols-outlined">favorite</span></button>
-                    <button class="btn rounded-pill btn-tools text-primary" onclick="changeColor('accent')"><span
-                        class="material-symbols-outlined">rotate_left</span></button>
-    
-                  </div>
-                </div>
-                -->
                 <div class="my-3 d-flex justify-content-end align-items-center">
-                  <p>Use a barra de espaço para gerar uma nova paleta, ou
-                    <button class="btn accent btn-rounded " onclick="themeColors()">
-                      NEW
-                      PALLETE</button>
-                  </p>
+                  
+                    <button class="btn accent btn-rounded  d-inline-flex mx-2 " onclick="themeColors()">
+                      <span class="material-symbols-outlined">rotate_left</span> &nbsp;NOVA PALETA
+                      </button>
+                      <button class="btn primary btn-rounded  d-inline-flex" id="savePaletteButton"><span
+                        class="material-symbols-outlined">favorite</span> &nbsp;
+                        SALVAR
+                        PALETA</button>
+                 
                 </div>
-
-
-
 
                   <div class="accordion" id="accordionPanelsStayOpenExample">
                     <div class="accordion-item">
@@ -161,7 +141,24 @@
                       <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
                         aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
-                          <strong>Tabela de paletas</strong>
+                          <table id="myPaletteTable" class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>
+                                  <div id="palette-display"></div>
+                                </th>
+                                <th>Paleta</th>
+                                <th>Neutral</th>
+                                <th>Primary</th>
+                                <th>Accent</th>
+                                <th>Excluir</th>
+                                <th>Selecionar</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- Rows will be dynamically added here -->
+                            </tbody>
+                          </table>
                         </div>
                       </div>
                     </div>
@@ -176,15 +173,37 @@
                       <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
                         aria-labelledby="panelsStayOpen-headingThree">
                         <div class="accordion-body">
-                          <div>
-                            <button onclick="updateImages('fashion')">Moda</button>
-                            <button onclick="updateImages('hikes')">Trilhas</button>
-                            <button onclick="updateImages('beach')">Praia</button>
-                            <button onclick="updateImages('party')">Festa</button>
-                            <button onclick="updateImages('decor')">Decoração</button>
-                            <input type="text" id="customTag" placeholder="Tema personalizado">
-                            <button onclick="updateCustomImage()">Aplicar Personalizado</button>
+                          <div class="row justify-content-center my-3">
+                            <div class="col-lg-5">
+
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="escolha um tema" aria-label="insira um tema para buscar imagens" aria-describedby="button-addon">
+                                <button class="btn accent" onclick="updateCustomImage()" type="button" id="button-addon">Buscar</button>
+                              </div>
+                            </div>
                           </div>
+                          <div>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('fashion')">Moda</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('dogs')">Cães</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('cats')">Gatos</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('hikes')">Trilhas</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('beach')">Praia</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('party')">Festa</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('decor')">Decoração</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('beach')">Praia</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('food')">Comida</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('urban')">Urbano</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('travel')">Viagem</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('nature')">Natureza</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('architecture')">Arquitetura</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('films')">Filmes</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('beach')">Fashion</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('beach')">Pessoas</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('beach')">Animais</button>
+                            <button class="btn btn-sm primary rounded-pill my-2 " onclick="updateImages('beach')">Walpapers</button>
+
+                          </div>
+                         
                         </div>
                       </div>
                     </div>
@@ -193,7 +212,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6" id="template">
+        <div class="col-lg-5" id="template">
           <div class="container-fluid" class="scrollable-column">
             <div class="container">
               <div class="row justify-content-center mt-4 mb-5 text_primary">
