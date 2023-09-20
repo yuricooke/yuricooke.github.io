@@ -63,11 +63,9 @@ const setThemeColors = (neutral, primary, accent) => {
 window.addEventListener("DOMContentLoaded", () => {
   themeColors();
 
-  const saveButton = document.getElementById("savePaletteButton");
-  saveButton.addEventListener("click", () => {
-    savePalette(palette[0], palette[1], palette[2]);
-  });
+  
 });
+
 
 
 

@@ -19,3 +19,9 @@ function updateCustomImage() {
     const customTag = document.getElementById('customTag').value;
     updateImages(customTag);
 }
+
+function handleEnterKey(event) {
+    if (event.key === "Enter") {
+        updateCustomImage();
+    }
+}

@@ -1,67 +1,28 @@
 /* FONTS TYPE AND SIZE */
 
+html {
+  width: 100%;
+  overflow-y: auto ;
+  
+}
+
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');    
 @import url('https://fonts.googleapis.com/css2?family=Armata&display=swap');
 
-h1, h2 {
+h1, h2, h3, h5 {
     font-family: Armata;
 }
 h5{
   font-size: 1.2rem;
 }
+
 .scrollable-column {
-  height: 100dvh; /* You can adjust this height as needed */
+  height: 100dvh; 
   overflow-y: auto;
+  overflow-x: hidden;
   position: sticky;
   top: 0;
-
-}
-
-/* usado no carrossel para as imagens */
-.user-mask{
-    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
-    max-width: 100px;
-    max-height: 100px ;
-}
-
-
-  .card-carousel {
-    margin: 10px;
-    width: 300px;
-  }
-
-.location{
-    font-size: 0.8rem;
-}
-
-.card{
-    border: none;
-    box-shadow: 0px 2px 6px gray;
-
-    
-}
-
-.card-color {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 150px;
-    width: auto;
-    
-}
-
-@media screen and (max-width: 600px) {
-    .card{
-        border: none;
-        box-shadow: none;
-        
-    }
-    .card-color{
-        box-shadow: 0px 2px 6px gray;
-        min-height: 50px;
-        border-radius: 50px;
-        padding-top: 5px;
-    }
 }
 
 .btn-tools {
@@ -69,19 +30,20 @@ h5{
 
     &:hover {
         box-shadow: 0px 0 0 4px var(--accent);
+        color: var(--accent-contrast);
       }
     
       &:active {
         box-shadow: 0px 0 0 4px var(--primary);
     
       }
-      &:focus {
-          background-color: #FFF;
-          outline: none;
-      }
 
 }
 
+#navbar{
+  position: relative;
+  z-index: 1;
+}
 /*
 PRIMARY
 */
@@ -115,31 +77,6 @@ PRIMARY
 
 
 
-/*
-HERO
-*/
-.hero {
-    display: flex;
-    align-items: center;
-    height: 45vh;
-    mask-size: cover;
-    -webkit-mask-size: cover;
-    background-image: url(https://source.unsplash.com/random/?coding); /* Replace with your image path or use a CSS property to set the background image dynamically */
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-  }
-
-  .bgHero {
-    background-color: var(--primary);
-    mix-blend-mode: normal;
-    opacity: 0.85;
-    color: var(--primary-contrast);
-  }
-  
-  /*
-  NAV
-  */
 
   .btn-accent{
     background-color: var(--accent);
@@ -287,98 +224,6 @@ HERO
   }
   
 
-  /* COLOR DISPLAY */ 
-
-  /* Style for the color representation and hex value container */
-.color-container {
-  display: flex; /* Use flexbox to align content vertically */
-  align-items: center; /* Vertically center content */
-  margin-bottom: 10px; /* Adjust spacing between containers as needed */
-}
-
-/* Style for the hex value text */
-.color-container span {
-  margin-left: 10px; /* Add spacing between color and hex value */
-  font-weight: bold; /* Make the hex value text bold (optional) */
-}
-
-
-
-.accordion-item {
-  border: 0px;
-  border-top: 2px solid var(--accent); /* Border on the top */
-  border-bottom: 2px solid var(--accent); /* Border on the bottom */
-}
-.accordion-button {
-  color: var(--primary);
-  background-color: var(--neutral);
-  font-size: 1.2rem;
-  
-}
-
-.accordion-button:not(.collapsed) {
-  color: var(--primary);
-  background-color: var(--neutral);
-}
-
-.accordion-button:focus {
-  box-shadow: none;
-}
-.accordion-body{
-  background-color: var(--neutral);
-
-}
-
-.palette-display{
-  position: relative;
-}
-.palette-display h5, h4{
-    font-family: Armata;
-}
-.custom-width {
-  flex: 1;
-  align-items: center;
-  padding-top: 7%;
-  padding-bottom: 7%;
-  max-width: 100%;
-  transition: all 0.3s ease; /* Adicione uma transição suave para a mudança de largura */
-  position: relative;
-  z-index: 1; /* Defina o z-index para 1 para todas as colunas em seu estado natural */
-}
-
-.custom-width.primary {
-  max-width: 35%;
-}
-
-.custom-width.accent {
-  max-width: 15%;
-}
-
-.col-12:hover .custom-width:not(:hover) {
-  display: none; /* Ocultar colunas não focalizadas quando o mouse está sobre .col-12 */
-}
-
-
-.custom-width:hover {
-  flex: 0 0 60%; /* Expanda para 100% de largura ao passar o mouse */
-  max-width: 60%;
-  z-index: 2; /* Aumente o z-index para 2 ao passar o mouse, fazendo com que ela apareça acima das outras */
-}
-select, .select-palette-button {
-  color: var(--accent);
-  background-color: var(--neutral);
-  border-color: var(--accent);
-  border-radius: 2px;
-  font-size: 0.8rem;
-  padding: 2px;
-  border-width: 1px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3) ;
-}
-select:hover, .select-palette-button:hover {
-  color: var(--accent-contrast);
-  background-color: var(--accent);
-  border-color: var(--accent);
-}
 
 
 
@@ -407,6 +252,7 @@ select:hover, .select-palette-button:hover {
 
 .custom-width {
   max-width: 33%;
+  transition: none; /* Adicione uma transição suave para a mudança de largura */
 }
 .custom-width.primary {
   max-width: 34%;
@@ -416,4 +262,23 @@ select:hover, .select-palette-button:hover {
   max-width: 33%;
 }
 
+}
+
+/*cores na lista paleta*/
+.neutral-bar {
+  background-color: var(--neutral-color);
+  width: 30px;
+  height: 10px;
+}
+
+.primary-bar {
+  background-color: var(--primary-color);
+  width: 30px;
+  height: 10px;
+}
+
+.accent-bar {
+  background-color: var(--accent-color);
+  width: 30px;
+  height: 10px;
 }

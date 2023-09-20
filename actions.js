@@ -140,6 +140,8 @@ const insertList = (colorName, colorValue) => {
   colorDisplay.style.height = "30px";
   colorDisplay.style.width = "30px";
   colorDisplay.style.backgroundColor = colorValue; // Set the background color
+  colorDisplay.style.border = "1px solid lightgray"; 
+
   colorDisplayCell.appendChild(colorDisplay);
 
   // Create the color selection dropdown and pass the row
@@ -229,29 +231,28 @@ const insertCloseButton = (parent) => {
 
 /* FUNÇÕES PARA A PALETA */
 
+const savePaletteButton = () => {
+  const saveButton = document.getElementById("savePaletteButton");
+  saveButton.addEventListener("click", () => {
+    savePalette(palette[0], palette[1], palette[2]);
+  });
+}
 
 
-const savePalette = (paletteNeutral, palettePrimary, paletteAccent) => {
-  // Prompt the user for a palette name
+function savePalette() {
   const paletteName = prompt("Insira um nome para a paleta:");
-  if (!paletteName) {
+  if (paletteName === null || paletteName === "") {
     alert("Insira um nome válido.");
     return;
   }
 
-  // Display success alert before proceeding
   alert(`Paleta ${paletteName} salva com sucesso!`);
+  insertPaletteList(paletteName, palette[0], palette[1], palette[2]);
+  postPaletteItem(paletteName, palette[0], palette[1], palette[2]);
+}
 
-  // Chame a função para inserir a cor e nome na lista no front
-  insertPaletteList(paletteName, paletteNeutral, palettePrimary, paletteAccent);
-  // Chame a função para inserir a cor e nome na lista no back
-  postPaletteItem(paletteName, paletteNeutral, palettePrimary, paletteAccent);
-};
 
 const insertPaletteList = (paletteName, paletteNeutral, palettePrimary, paletteAccent) => {
-  let paletteList = [paletteName, paletteNeutral, palettePrimary, paletteAccent];
-  console.log("Inserindo na lista:", paletteList);
-
   var item = [paletteName, paletteNeutral, palettePrimary, paletteAccent];
   var table = document.getElementById("myPaletteTable");
   var row = table.insertRow();
@@ -259,16 +260,19 @@ const insertPaletteList = (paletteName, paletteNeutral, palettePrimary, paletteA
   // Create a container div for the colored bars
   var colorBarsContainer = document.createElement("div");
   colorBarsContainer.className = "color-bars-container";
-  
+  colorBarsContainer.style.border = "1px solid lightgray"; 
+  colorBarsContainer.style.width = "32px"; 
+
+
   // Create a div for the neutral color bar
   var neutralColorBar = createColorBar(paletteNeutral, "neutral-bar");
-  
+
   // Create a div for the primary color bar
   var primaryColorBar = createColorBar(palettePrimary, "primary-bar");
-  
+
   // Create a div for the accent color bar
   var accentColorBar = createColorBar(paletteAccent, "accent-bar");
-  
+
   // Append the color bars to the container
   colorBarsContainer.appendChild(neutralColorBar);
   colorBarsContainer.appendChild(primaryColorBar);
@@ -286,11 +290,11 @@ const insertPaletteList = (paletteName, paletteNeutral, palettePrimary, paletteA
   var neutralCell = row.insertCell(2);
   neutralCell.textContent = item[1];
 
-  // Insert "primary" in the fourth cell (index 3)
+  // Insert "Primary" in the fourth cell (index 3)
   var primaryCell = row.insertCell(3);
   primaryCell.textContent = item[2];
 
-  // Insert "accent" in the fifth cell (index 4)
+  // Insert "Accent" in the fifth cell (index 4)
   var accentCell = row.insertCell(4);
   accentCell.textContent = item[3];
 
@@ -311,11 +315,14 @@ const insertPaletteList = (paletteName, paletteNeutral, palettePrimary, paletteA
   removePaletteElement();
 };
 
+
 // Function to create a colored bar
 const createColorBar = (color, cssClass) => {
   var colorBar = document.createElement("div");
   colorBar.className = `color-bar ${cssClass}`;
   colorBar.style.backgroundColor = color;
+
+
   return colorBar;
 };
 
