@@ -10,33 +10,48 @@
   <!-- CDN Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
   <!-- CSS theme styles -->
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" type="text/css" href="dashboard.css">
-  <link rel="stylesheet" type="text/css" href="template.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/template.css">
 
   <!-- google icons -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+  <!-- fontawesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
   <main>
     <section id="navbar">
       <div class="pt-3 pb-2 bg-dark shadow sticky-top ">
-        <div class="row justify-content-start">
-          <div class="col-3 col-md-3">
-            <h1 class="text_neutral" style="font-size: 1.2rem; padding-left: 3.5rem;"><strong><nobr>#603010
-                Generator</nobr></strong></h1>
+        <div class="row justify-content-start px-5">
+          <div class="col-12 col-md-3 ">
+            <h1 class="text_neutral" style="font-size: 1.2rem;"><strong>
+                <nobr>#603010
+                  Generator</nobr>
+              </strong></h1>
           </div>
-          <div class="col-9 col-md-6 text-center ">
+          <div class="col-12 col-md-6 text-center d-sm-block d-none ">
             <p style="color: rgb(173, 172, 172) ;">Use a barra de espaço para gerar uma nova paleta</p>
           </div>
+          <div class="col-12 col-md-3 d-flex justify-content-end ">
+            <p style="color: rgb(173, 172, 172) ;">Dev | Yuri Cooke: <a class="text-white" target="_blank"
+                href="https://www.linkedin.com/yuricooke">
+                <i class="fa fa-linkedin-square" style="font-size:20px"></i></a></p>
+
+          </div>
+
         </div>
       </div>
     </section>
 
- 
+
     <section id="Generator">
       <div class="row px-0">
 
@@ -101,9 +116,11 @@
               <div class="row py-lg-3 justify-content-start align-items-center">
                 <div class="col-md-7">
                   <p class="text_accent d-flex align-items-center my-3"><span class="material-symbols-outlined ">
-                    priority_high
-                  </span> Aviso</p>
-                  <small>A cor <i>neutral</i> está programada para exibir apenas cores <em>neutral</em> com alta luminosidade. Caso deseje inserir tons mais escuros, inserira um novo valor #HEX no campo acima. </small> 
+                      priority_high
+                    </span> Aviso</p>
+                  <small>A cor <i>neutral</i> está programada para exibir apenas cores <em>neutral</em> com alta
+                    luminosidade. Caso deseje inserir tons mais escuros, inserira um novo valor #HEX no campo acima.
+                  </small>
                 </div>
               </div>
               <div class="row py-lg-3 text-center justify-content-center align-items-center">
@@ -111,7 +128,7 @@
                   <button class="btn accent btn-rounded  d-inline-flex mx-2 " onclick="themeColors()">
                     <span class="material-symbols-outlined">rotate_left</span> &nbsp;NOVA PALETA
                   </button>
-                  <button class="btn primary btn-rounded  d-inline-flex" onclick="savePaletteButton()" id="savePaletteButton"><span
+                  <button class="btn primary btn-rounded  d-inline-flex" onclick="saveButtonPalette()"><span
                       class="material-symbols-outlined">favorite</span> &nbsp;
                     SALVAR
                     PALETA</button>
@@ -130,7 +147,7 @@
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                       aria-labelledby="panelsStayOpen-headingOne">
                       <div class="accordion-body">
-                       
+
                         <table id="myColorTable" class="table table-striped">
                           <thead>
                             <tr>
@@ -196,7 +213,8 @@
 
                             <div class="input-group mb-3">
                               <input type="text" class="form-control" id="customTag" placeholder="escolha um tema"
-                                aria-label="insira um tema para buscar imagens" aria-describedby="button-addon" onkeydown="handleEnterKey(event)">
+                                aria-label="insira um tema para buscar imagens" aria-describedby="button-addon"
+                                onkeydown="handleEnterKey(event)">
                               <button class="btn accent" onclick="updateCustomImage()" type="button"
                                 id="button-addon">Buscar</button>
                             </div>
@@ -232,13 +250,13 @@
                           <button class="btn btn-sm primary rounded-pill my-2 "
                             onclick="updateImages('films')">Filmes</button>
                           <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('beach')">Fashion</button>
+                            onclick="updateImages('fashion')">Fashion</button>
                           <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('beach')">Pessoas</button>
+                            onclick="updateImages('people')">Pessoas</button>
                           <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('beach')">Animais</button>
+                            onclick="updateImages('animals')">Animais</button>
                           <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('beach')">Walpapers</button>
+                            onclick="updateImages('walpapers')">Walpapers</button>
 
                         </div>
 
@@ -282,17 +300,26 @@
                   <h1 class="textHero p-1">Seja bem-vindo!</h1>
                 </div>
                 <div class="p-5">
-                  <h2 class="text_primary mb-3">Regra 60|30|10</h2>
-                  <p>Como você costuma organizar as paletas de cores dentro dos produtos digitais que você está envolvido? É bem comum, principalmente quando estamos iniciando na área, não distribuir da forma ideal as cores nos elementos e componentes que estarão presentes nas interfaces, como textos, ilustrações e botões. Tudo isso deve ser elaborado de forma que todas as páginas do produto tenham a identidade bem evidente, e que fiquem de forma harmônica.
+                  <h2 class="text_primary mb-5">Regra 60|30|10</h2>
+                  <p>Como você costuma organizar as paletas de cores dentro dos produtos digitais que você está
+                    envolvido? É bem comum, principalmente quando estamos iniciando na área, não distribuir da forma
+                    ideal as cores nos elementos e componentes que estarão presentes nas interfaces, como textos,
+                    ilustrações e botões. Tudo isso deve ser elaborado de forma que todas as páginas do produto tenham a
+                    identidade bem evidente, e que fiquem de forma harmônica.
                   </p>
-                  <p>Existem diversas técnicas e métodos para trabalhar com cores, e uma delas é a <strong>Regra 60-30-10</strong>, que ajuda a dividir corretamente a composição de cores numa interface. Apesar de ser uma técnica que está presente principalmente na arquitetura e no design de interiores, que são áreas que não atuam com produtos digitais, como sites e apps, ainda é possível utilizar essa regra na construção de interfaces, já que utilizamos de cores para evidenciar ou não diversos elementos.</p>
+                  <p>Existem diversas técnicas e métodos para trabalhar com cores, e uma delas é a <strong>Regra
+                      60-30-10</strong>, que ajuda a dividir corretamente a composição de cores numa interface. Apesar
+                    de ser uma técnica que está presente principalmente na arquitetura e no design de interiores, que
+                    são áreas que não atuam com produtos digitais, como sites e apps, ainda é possível utilizar essa
+                    regra na construção de interfaces, já que utilizamos de cores para evidenciar ou não diversos
+                    elementos.</p>
                   <div class="d-flex justify-content-end">
-                  <button class="btn btn-pill primary " onclick="themeColors()">Tente novas
-                    cores!!!</button>
-                    </div> 
+                    <button class="btn btn-pill primary " onclick="themeColors()">Tente novas
+                      cores!!!</button>
+                  </div>
                 </div>
               </div>
-              <!----> 
+              <!---->
               <div class="row justify-content-center px-2 py-4">
                 <div class="col-lg-4 py-3">
                   <div class="card borderNeutral shadow">
@@ -391,9 +418,13 @@
 
               <div class="row justify-content-center">
                 <div class="p-5">
-                  <h2 class="text_primary mb-3">Entendendo a regra
+                  <h2 class="text_primary my-5">Entendendo a regra
                   </h2>
-                  <p>Primeiro de tudo, é preciso entender que “60-30-10” se tratam de porcentagem, definindo quais cores terão mais presença dentro de uma página. Esses valores são, de certa forma, imaginários, pois não tem como termos noção se estamos de fato usando, por exemplo, 60% de uma cor numa interface, mas a definição deles, nesses valores e ordem respectivamente, servem para entendermos a grandeza que uma cor vai estar presente. A partir disso, cada uma dessas porcentagens significa o seguinte:
+                  <p>Primeiro de tudo, é preciso entender que “60-30-10” se tratam de porcentagem, definindo quais cores
+                    terão mais presença dentro de uma página. Esses valores são, de certa forma, imaginários, pois não
+                    tem como termos noção se estamos de fato usando, por exemplo, 60% de uma cor numa interface, mas a
+                    definição deles, nesses valores e ordem respectivamente, servem para entendermos a grandeza que uma
+                    cor vai estar presente. A partir disso, cada uma dessas porcentagens significa o seguinte:
                   </p>
                 </div>
               </div>
@@ -403,43 +434,90 @@
                   <ul>
                     <li>60% é a cor dominante, que terá mais presença dentro das interfaces.</li>
                     <li>30% é a cor secundária, que servirá como contraste a cor de destaque, e trará a harmonia.</li>
-                    <li>10% é a cor de destaque, que comumente se trata da cor da marca, sendo direcionada aos elementos que merecem destaque, como botões, links e ícones.</li>
-                    
+                    <li>10% é a cor de destaque, que comumente se trata da cor da marca, sendo direcionada aos elementos
+                      que merecem destaque, como botões, links e ícones.</li>
+
                   </ul>
                 </div>
               </div>
               <!---->
               <div class="row justify-content-center p-5">
-                  <p>Agora pode estar com uma dúvida muito compreensível:</p> 
-                  
-                  <div class="my-5 text-center ">
-                    <hr class="accent" style="height: 2px;">
-                    <p class="d-flex align-items-center justify-content-center text_accent " ><strong> ... e as outras cores na interface? ...</strong></p>
-                    <hr class="accent" style="height: 2px;">
+                <p>Agora pode estar com uma dúvida muito compreensível:</p>
+
+                <div class="my-5 text-center ">
+                  <hr class="accent" style="height: 2px;">
+                  <p class="d-flex align-items-center justify-content-center text_accent "><strong> ... e as outras
+                      cores na interface? ...</strong></p>
+                  <hr class="accent" style="height: 2px;">
+
+                </div>
+                <p>Temos textos em cinza escuro e claro, cards também na cor cinza, imagens com cores variadas. De fato,
+                  em grande parte dos casos, uma interface dificilmente terá apenas três cores, mas dentro desse
+                  processo, não há a necessidade de listar, literalmente, todas as cores que serão utilizadas, pois
+                  podem haver diversas variações de uma mesma cor, como acontecem com os próprios textos, ou até mesmo
+                  com a interação realizada com o cursor em alguns componentes, e com relação às imagens, por mais que
+                  seja interessante seguir um padrão de identidade visual, esse é um elemento em que não há a
+                  necessidade de se contabilizar as cores.</p>
+                <p>Você vai reparar, aplicando e analisando produtos, que as cores dominantes mais comuns, na maior
+                  parte dos casos, vão ser a cor de fundo do site, que comumente é um branco, cinza claro, e às vezes
+                  preto ou cinza escuro em produtos que possuem modo noturno. Chamamos de primária nesse caso, pois é a
+                  cor que mais veremos no decorrer das páginas, e por ela ser o fator principal de contraste e harmonia
+                  com as outras que estão sobre essa.
+
+                </p>
+              </div>
+              <div class="row justify-content-center parallax m-0">
+                <div class="overlay p-0 m-0 ">
+                </div>
+              </div>
+              <div class="row justify-content-center pt-3 px-5">
+                <h2 class="text_primary my-5 ">Como aplicar</h2> 
+                <div class="col-12 col-lg-6">
+                  <p>Como já comentei, você tem a cor da marca, e com isso você tem base para colorir diversos elementos
+                    e componentes, dando os destaques necessários. A seguir, o processo é testar cores que vão
+                    complementar a interface, e trazer o contraste ideal, não tirando o foco que os 10% devem possuir.
+                  </p>
+
+                </div>
+                <div class="col-6 d-none d-sm-block">
+                  <svg id="visual" class="svg-icon-2" viewBox="0 0 900 900" width="250" height="auto"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <g transform="translate(347.46536985400667 430.96895164134)">
+                      <path
+                        d="M403.9 -191C485.1 -92.6 486.1 94.3 405.4 205.2C324.8 316.2 162.4 351.1 60.9 315.9C-40.6 280.8 -81.2 175.5 -140.4 77C-199.6 -21.5 -277.3 -113.2 -257 -176.4C-236.7 -239.7 -118.4 -274.3 21.5 -286.7C161.4 -299.2 322.7 -289.3 403.9 -191"
+                        fill="#001122"></path>
+                    </g>
+                  </svg>
+                </div>
+                <p>A tendência de “light” e “dark” mode já passou a ser algo extremamente natural na grande maioria dos
+                  produtos, então seguir esse padrão para as interfaces que você está projetando pode ser bem assertivo.
+                </p>
+                <p>Agora que você entendeu como funciona, saber como aplicar fica muito mais fácil. Imagine que você
+                  está na etapa de wireframing, ainda construindo aqueles rascunhos em baixa ou média fidelidade, sem
+                  qualquer cor identidade aplicada nas suas construções. É nesse momento que você irá utilizar o
+                  60-30-10 para balancear perfeitamente e trazer harmonia às páginas.</p>
+                <span class="text_primary">Fonte: Alura | <a
+                    href="https://www.alura.com.br/artigos/regra-60-30-10-ui-design" target="_blank"
+                    class="text_accent">Regra 60-30-10 em UI Design</a></span>
+
 
                   </div>
-                  <p>Temos textos em cinza escuro e claro, cards também na cor cinza, imagens com cores variadas. De fato, em grande parte dos casos, uma interface dificilmente terá apenas três cores, mas dentro desse processo, não há a necessidade de listar, literalmente, todas as cores que serão utilizadas, pois podem haver diversas variações de uma mesma cor, como acontecem com os próprios textos, ou até mesmo com a interação realizada com o cursor em alguns componentes, e com relação às imagens, por mais que seja interessante seguir um padrão de identidade visual, esse é um elemento em que não há a necessidade de se contabilizar as cores.</p>
-                  <p>Você vai reparar, aplicando e analisando produtos, que as cores dominantes mais comuns, na maior parte dos casos, vão ser a cor de fundo do site, que comumente é um branco, cinza claro, e às vezes preto ou cinza escuro em produtos que possuem modo noturno. Chamamos de primária nesse caso, pois é a cor que mais veremos no decorrer das páginas, e por ela ser o fator principal de contraste e harmonia com as outras que estão sobre essa.
+                <div class="row justify-content-center p-5">
+                  <h2 class="text_primary my-3 ">O App</h2> 
+                  <p>No video a seguir explico o objetivo desse projeto e mostro o desenvolvimento da aplicação. 
+                  </p>
+                  <div class="col-12 d-flex justify-content-center py-3">
 
-                
-                  <h2 class="text_primary my-5 ">Como aplicar</h2>
-                  <div class="col-6">
-                <p>Como já comentei, você tem a cor da marca, e com isso você tem base para colorir diversos elementos e componentes, dando os destaques necessários. A seguir, o processo é testar cores que vão complementar a interface, e trazer o contraste ideal, não tirando o foco que os 10% devem possuir. A tendência de “light” e “dark” mode já passou a ser algo extremamente natural na grande maioria dos produtos, então seguir esse padrão para as interfaces que você está projetando pode ser bem assertivo.</p>
-                  
+                    <iframe class="frame" width="560" height="315" src="https://www.youtube.com/embed/7v2VJduPuAI?si=iHJnLRotRsUQIekO"
+                      title="Apresentação do projeto" frameborder="0"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen></iframe>
+                  </div>
                 </div>
-                <div class="col-6 ">
-
-                  <svg id="visual" class="svg-icon-2" viewBox="0 0 900 900" width="300" height="350" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><g transform="translate(347.46536985400667 430.96895164134)"><path d="M403.9 -191C485.1 -92.6 486.1 94.3 405.4 205.2C324.8 316.2 162.4 351.1 60.9 315.9C-40.6 280.8 -81.2 175.5 -140.4 77C-199.6 -21.5 -277.3 -113.2 -257 -176.4C-236.7 -239.7 -118.4 -274.3 21.5 -286.7C161.4 -299.2 322.7 -289.3 403.9 -191" fill="#001122"></path></g></svg>
-                  
-                </div>
-                <p>Agora que você entendeu como funciona, saber como aplicar fica muito mais fácil. Imagine que você está na etapa de wireframing, ainda construindo aqueles rascunhos em baixa ou média fidelidade, sem qualquer cor identidade aplicada nas suas construções. É nesse momento que você irá utilizar o 60-30-10 para balancear perfeitamente e trazer harmonia às páginas.</p>
-                <span class="text_primary">Fonte: Alura | <a href="https://www.alura.com.br/artigos/regra-60-30-10-ui-design" target="_blank" class="text_accent">Regra 60-30-10 em UI Design</a></span>
-
 
 
                 <!---->
                 <div class="row justify-content-center">
-
                   <div id="myCarousel" class="carousel slide neutral py-5">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
@@ -453,7 +531,9 @@
                                       class="card-img-top user-mask" alt="Consumer Image 1">
                                   </div>
                                   <div class="col-6">
-                                    <h5 class="card-title mb-0"><nobr>Luke Skywalker</nobr></h5>
+                                    <h5 class="card-title mb-0">
+                                      <nobr>Luke Skywalker</nobr>
+                                    </h5>
                                     <span class="location">Tatooine</span>
                                     <div class="rating text_accent">
                                       <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
@@ -475,7 +555,9 @@
                                       class="card-img-top user-mask" alt="Consumer Image 1">
                                   </div>
                                   <div class="col-lg-6">
-                                    <h5 class="card-title mb-0"><nobr>Lord Vader</nobr></h5>
+                                    <h5 class="card-title mb-0">
+                                      <nobr>Lord Vader</nobr>
+                                    </h5>
                                     <span class="location">Death Star</span>
                                     <div class="rating text_accent">
                                       <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
@@ -492,7 +574,7 @@
                       </div>
                       <div class="carousel-item">
                         <div class="row justify-content-center">
-                          
+
                           <div class="col-lg-5 d-none d-lg-block">
                             <div class="card-carousel">
                               <div class="card-body">
@@ -541,7 +623,7 @@
                       </div>
                       <div class="carousel-item">
                         <div class="row justify-content-center">
-                          
+
                           <div class="col-lg-5 d-none d-lg-block">
                             <div class="card-carousel">
                               <div class="card-body">
@@ -612,12 +694,12 @@
                 <div class="col-lg-10 neutral shadow p-5">
                   <ul class="nav d-flex justify-content-center">
                     <li class="nav-item ">
-                      <button class="btn btn-outline-accent btn-rounded mt-1 nav-link active mx-3" id="login-tab"
+                      <button class="btn primary btn-rounded mt-1 nav-link active mx-3" id="login-tab"
                         data-bs-toggle="tab" href="#login">&nbsp; Login&nbsp; </button>
                     </li>
                     <li class="nav-item">
-                      <button class="btn btn-outline-accent btn-rounded mt-1 nav-link mx-3" id="register-tab"
-                        data-bs-toggle="tab" href="#register">Register</button>
+                      <button class="btn primary btn-rounded mt-1 nav-link mx-3" id="register-tab" data-bs-toggle="tab"
+                        href="#register">Register</button>
                     </li>
                   </ul>
                   <div class="tab-content mt-4">
@@ -639,7 +721,7 @@
                           <a href="#" style="margin-left: 15px ;">Forgot password?</a>
                         </div>
                         <div class="d-flex justify-content-end">
-                          <button type="submit" class="btn primary">Sign In</button>
+                          <button type="submit" class="btn accent">Sign In</button>
                         </div>
                       </form>
                     </div>
@@ -668,7 +750,9 @@
                           <input type="password" class="form-control" id="register-password-repeat"
                             placeholder="Repeat your password">
                         </div>
-                        <button type="submit" class="btn primary">Register</button>
+                        <div class="d-flex justify-content-end">
+                          <button type="submit" class="btn accent">Register</button>
+                        </div>
                       </form>
                     </div>
                   </div>
@@ -682,14 +766,6 @@
     </section>
 
 
-
-    <section id="color-intro">
-
-    </section>
-    <section id="template_1">
-
-      </div>
-    </section>
   </main>
 
   <!-- jQuery CDN -->
@@ -704,10 +780,11 @@
     crossorigin="anonymous"></script>
 
   <!--<script src="assets/js/themes.js"></script>-->
-  <script src="colorTheme.js"></script>
-  <script src="actions.js"></script>
-  <script src="methods.js"></script>
-  <script src="images.js"></script>
+  <script src="assets/js/colorTheme.js"></script>
+  <script src="assets/js/colors.js"></script>
+  <script src="assets/js/palettes.js"></script>
+  <script src="assets/js/methods.js"></script>
+  <script src="assets/js/images.js"></script>
 
   <!--script src="prices.js"></script-->
 

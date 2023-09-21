@@ -1,0 +1,146 @@
+/* --- 
+dashboard.css
+
+Principais estilos do dashboard 
+
+1 - Display da paleta
+2 - Accordion
+3 - Tabelas
+--- */
+
+
+/* 1 - Display da paleta */
+
+.palette-display {
+  position: relative;
+  width: 100%;
+}
+
+.palette-display h5,
+h4 {
+  font-family: Armata;
+}
+
+.palette-cell {
+  flex: 1;
+  align-items: center;
+  padding-top: 7%;
+  padding-bottom: 7%;
+  max-width: 60%;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.palette-cell.primary {
+  max-width: 35%;
+}
+
+.palette-cell.accent {
+  max-width: 15%;
+}
+
+.palette-cell:hover {
+  flex: 0 0 60%;
+  /* Expanda para 100% de largura ao passar o mouse */
+  max-width: 60%;
+  z-index: 2;
+  /* Aumente o z-index para 2 ao passar o mouse, fazendo com que ela apareça acima das outras */
+}
+
+@media only screen and (max-width: 768px) {
+  table {
+    font-size: 0.8rem;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .palette-cell {
+    max-width: 33%;
+    transition: none;
+    /* Adicione uma transição suave para a mudança de largura */
+  }
+
+  .palette-cell.primary {
+    max-width: 34%;
+  }
+
+  .palette-cell.accent {
+    max-width: 33%;
+  }
+}
+
+
+/* 2 - Accordion */
+
+.accordion-item {
+  border: 0px;
+  border-top: 2px solid var(--accent);
+  /* Border on the top */
+  border-bottom: 2px solid var(--accent);
+  /* Border on the bottom */
+}
+
+.accordion-button {
+  color: var(--primary);
+  background-color: var(--neutral);
+  font-size: 1.2rem;
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--primary);
+  background-color: var(--neutral);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-body {
+  background-color: var(--neutral);
+}
+
+
+/* 3 - Tabela */
+
+#myColorTable,
+#myPaletteTable {
+  color: var(--neutral-contrast) !important;
+  table-layout: fixed;
+}
+
+.neutral-bar {
+  background-color: var(--neutral-color);
+  width: 30px;
+  height: 10px;
+}
+
+.primary-bar {
+  background-color: var(--primary-color);
+  width: 30px;
+  height: 10px;
+}
+
+.accent-bar {
+  background-color: var(--accent-color);
+  width: 30px;
+  height: 10px;
+}
+
+select,
+.select-palette-button {
+  color: var(--accent);
+  background-color: var(--neutral);
+  border-color: var(--accent);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  padding: 2px;
+  border-width: 1px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+select:hover,
+.select-palette-button:hover {
+  color: var(--accent-contrast);
+  background-color: var(--accent);
+  border-color: var(--accent);
+}

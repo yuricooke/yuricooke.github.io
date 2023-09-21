@@ -5,6 +5,12 @@ function updateImages(tag) {
     const backgroundImageURL = `https://source.unsplash.com/random/?${tag}&${randomQuery}`;
     heroBackground.style.backgroundImage = `url(${backgroundImageURL})`;
 
+
+    const parallaxBackground = document.querySelector('.parallax');
+    const randomQueryParallax = Math.random().toString(36).substring(7); // Gere um parâmetro de consulta aleatório
+    const backgroundImageURLParallax = `https://source.unsplash.com/random/?${tag}&${randomQueryParallax}`;
+    parallaxBackground.style.backgroundImage = `url(${backgroundImageURLParallax})`;
+
     // Atualize as imagens nas tags <img> dentro das cartas
     const cards = document.querySelectorAll('.card-img img');
     cards.forEach((img, index) => {
