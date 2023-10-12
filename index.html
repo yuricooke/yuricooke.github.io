@@ -38,7 +38,7 @@
               </strong></h1>
           </div>
           <div class="col-12 col-md-6 text-center d-sm-block d-none ">
-            <p style="color: rgb(173, 172, 172) ;">Use a barra de espaço para gerar uma nova paleta</p>
+            <p style="color: rgb(173, 172, 172) ;">Use spacebar to generate a new palette</p>
           </div>
           <div class="col-12 col-md-3 d-flex justify-content-end ">
             <p style="color: rgb(173, 172, 172) ;">Dev | Yuri Cooke: <a class="text-white" target="_blank"
@@ -66,13 +66,13 @@
                 <div class="palette-cell neutral">
                   <h5 id="neutral" onclick="editColor('neutral')"></h5>
                   <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="editColor('neutral')"
-                    title="editar"><span class="material-symbols-outlined">
+                    title="edit"><span class="material-symbols-outlined">
                       edit
                     </span></button>
                   <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="changeColor('neutral')"
                     title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
                   <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="saveColor('--neutral')"
-                    title="salvar"><span class="material-symbols-outlined">favorite</span></button>
+                    title="save"><span class="material-symbols-outlined">favorite</span></button>
                   <hr class="mx-5">
                   <h4>60%</h4>
                   <h5>NEUTRAL</h5>
@@ -81,12 +81,12 @@
                 <div class="palette-cell primary">
                   <h5 id="primary" onclick="editColor('primary')"></h5>
                   <button class="btn btn-sm rounded-pill btn-tools primary" onclick="editColor('primary')"
-                    title="editar"><span class="material-symbols-outlined">
+                    title="edit"><span class="material-symbols-outlined">
                       edit
                     </span></button>
                   <button class="btn btn-sm rounded-pill btn-tools primary" onclick="changeColor('primary')"
                     title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
-                  <button class="btn btn-sm rounded-pill btn-tools primary" onclick="saveColor('--primary')"><span
+                  <button class="btn btn-sm rounded-pill btn-tools primary" onclick="saveColor('--primary')" title="save"><span
                       class="material-symbols-outlined">favorite</span></button>
                   <hr class="mx-5">
                   <h4>30%</h4>
@@ -96,13 +96,13 @@
                 <div class="palette-cell accent">
                   <h5 id="accent" onclick="editColor('accent')"></h5>
                   <nobr><button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="editColor('accent')"
-                      title="editar"><span class="material-symbols-outlined">
+                      title="edit"><span class="material-symbols-outlined">
                         edit
                       </span></button>
 
                     <button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="changeColor('accent')"
                       title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
-                    <button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="saveColor('--accent')"><span
+                    <button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="saveColor('--accent')" title="save"><span
                         class="material-symbols-outlined">favorite</span></button>
                   </nobr>
                   <hr class="mx-5">
@@ -114,24 +114,23 @@
 
             <div class="row justify-content-center px-5">
               <div class="row py-lg-3 justify-content-start align-items-center">
-                <div class="col-md-7">
-                  <p class="text_accent d-flex align-items-center my-3"><span class="material-symbols-outlined ">
-                      priority_high
-                    </span> Aviso</p>
-                  <small>A cor <i>neutral</i> está programada para exibir apenas cores <em>neutral</em> com alta
-                    luminosidade. Caso deseje inserir tons mais escuros, inserira um novo valor #HEX no campo acima.
+                <div class="col-md-12">
+                  
+                  <small><span class="material-symbols-outlined ">
+                    priority_high
+                  </span>Light mode is pre-set. To try dark themes, edit the Neutral value with a darker color
                   </small>
                 </div>
               </div>
               <div class="row py-lg-3 text-center justify-content-center align-items-center">
                 <div class="my-3 d-flex justify-content-end align-items-center">
                   <button class="btn accent btn-rounded  d-inline-flex mx-2 " onclick="themeColors()">
-                    <span class="material-symbols-outlined">rotate_left</span> &nbsp;NOVA PALETA
+                    <span class="material-symbols-outlined">rotate_left</span> &nbsp;NEW PALETTE
                   </button>
                   <button class="btn primary btn-rounded  d-inline-flex" onclick="saveButtonPalette()"><span
                       class="material-symbols-outlined">favorite</span> &nbsp;
-                    SALVAR
-                    PALETA</button>
+                    SAVE
+                    PALETTE</button>
                 </div>
               </div>
               <div class="row text-center justify-content-between align-items-center mb-5 px-3">
@@ -141,7 +140,7 @@
                       <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                         aria-controls="panelsStayOpen-collapseOne">
-                        Cores
+                        Colors
                       </button>
                     </h2>
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -154,10 +153,10 @@
                               <th>
                                 <div id="color-display"></div>
                               </th>
-                              <th>Cor</th>
+                              <th>Color</th>
                               <th>Hex</th>
-                              <th>Excluir</th>
-                              <th>Selecionar</th>
+                              <th>Delete</th>
+                              <th>Select</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -172,7 +171,7 @@
                       <button class="accordion-button " type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                         aria-controls="panelsStayOpen-collapseTwo">
-                        Paletas
+                        Palettes
                       </button>
                     </h2>
                     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
@@ -186,8 +185,8 @@
                               <th>Neutral</th>
                               <th>Primary</th>
                               <th>Accent</th>
-                              <th>Excluir</th>
-                              <th>Selecionar</th>
+                              <th>Delete</th>
+                              <th>Select</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -202,7 +201,7 @@
                       <button class="accordion-button " type="button" data-bs-toggle="collapse"
                         data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                         aria-controls="panelsStayOpen-collapseThree">
-                        Imagens
+                        Images
                       </button>
                     </h2>
                     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
@@ -222,39 +221,39 @@
                         </div>
                         <div>
                           <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('fashion')">Moda</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('dogs')">Cães</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('cats')">Gatos</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('hikes')">Trilhas</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('beach')">Praia</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('party')">Festa</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('decor')">Decoração</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('beach')">Praia</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('food')">Comida</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('urban')">Urbano</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('travel')">Viagem</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('nature')">Natureza</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('architecture')">Arquitetura</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('films')">Filmes</button>
-                          <button class="btn btn-sm primary rounded-pill my-2 "
                             onclick="updateImages('fashion')">Fashion</button>
                           <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('people')">Pessoas</button>
+                            onclick="updateImages('dogs')">Dogs</button>
                           <button class="btn btn-sm primary rounded-pill my-2 "
-                            onclick="updateImages('animals')">Animais</button>
+                            onclick="updateImages('cats')">Cats</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('hikes')">Hike</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('beach')">Beach</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('party')">Party</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('decor')">Decor</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('sports')">Sports</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('food')">Food</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('urban')">Urban</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('travel')">Travel</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('nature')">Nature</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('architecture')">Architecture</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('films')">Films</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('music')">Music</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('people')">People</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('animals')">Animals</button>
                           <button class="btn btn-sm primary rounded-pill my-2 "
                             onclick="updateImages('walpapers')">Walpapers</button>
 
@@ -276,7 +275,7 @@
             <div class="container">
               <div class="row justify-content-center mt-4 mb-5 ">
                 <h3 class="text_primary">Template</h3>
-                <p>Confira a pre-visualização da aplicação das cores no template.</p>
+                <p>Check out the preview of the application of colors in the template.</p>
                 <!--selecione uma tag para o tema do seu site: carro / moda / flores / etc-->
               </div>
             </div>
@@ -297,25 +296,24 @@
               <!---->
               <div class="row justify-content-center m-0">
                 <div class="hero p-5">
-                  <h1 class="textHero p-1">Seja bem-vindo!</h1>
+                  <h1 class="textHero p-1">Welcome!</h1>
                 </div>
                 <div class="p-5">
-                  <h2 class="text_primary mb-5">Regra 60|30|10</h2>
-                  <p>Como você costuma organizar as paletas de cores dentro dos produtos digitais que você está
-                    envolvido? É bem comum, principalmente quando estamos iniciando na área, não distribuir da forma
-                    ideal as cores nos elementos e componentes que estarão presentes nas interfaces, como textos,
-                    ilustrações e botões. Tudo isso deve ser elaborado de forma que todas as páginas do produto tenham a
-                    identidade bem evidente, e que fiquem de forma harmônica.
+                  <h2 class="text_primary mb-5">60|30|10 rule</h2>
+                  <p>How do you usually organize color palettes within the digital products you are
+                    involved? It is quite common, especially when we are starting out in the area, not to distribute as
+                    ideal colors in the elements and components that will be present in the interfaces, such as texts,
+                    illustrations and buttons. All of this must be designed in such a way that all product pages have the
+                    very evident identity, and that they remain harmonious.
                   </p>
-                  <p>Existem diversas técnicas e métodos para trabalhar com cores, e uma delas é a <strong>Regra
-                      60-30-10</strong>, que ajuda a dividir corretamente a composição de cores numa interface. Apesar
-                    de ser uma técnica que está presente principalmente na arquitetura e no design de interiores, que
-                    são áreas que não atuam com produtos digitais, como sites e apps, ainda é possível utilizar essa
-                    regra na construção de interfaces, já que utilizamos de cores para evidenciar ou não diversos
-                    elementos.</p>
+                  <p>There are several techniques and methods for working with colors, and one of them is the<strong>
+                    60-30-10 Rule</strong> which helps to correctly divide the color composition in an interface. Despite
+                  of being a technique that is present mainly in architecture and interior design, which
+                  are areas that do not work with digital products, such as websites and apps, it is still possible to use this
+                  rule when building interfaces, since we use colors to highlight or not different
+                  elements.</p>
                   <div class="d-flex justify-content-end">
-                    <button class="btn btn-pill primary " onclick="themeColors()">Tente novas
-                      cores!!!</button>
+                    <button class="btn btn-pill accent " onclick="themeColors()">try new colors!!!</button>
                   </div>
                 </div>
               </div>
@@ -328,7 +326,7 @@
                         alt="Image 1">
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title text_primary">Produto 1</h5>
+                      <h5 class="card-title text_primary">Product 1</h5>
                       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
                       <div class="row justify-content-end align-items-center">
@@ -359,7 +357,7 @@
                         alt="Image 2">
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title text_primary">Produto 2</h5>
+                      <h5 class="card-title text_primary">Product 2</h5>
                       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
                       <div class="row justify-content-end align-items-center">
@@ -390,7 +388,7 @@
                         alt="Image 3">
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title text_primary">Produto 3</h5>
+                      <h5 class="card-title text_primary">Product 3</h5>
                       <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
                       <div class="row justify-content-end align-items-center">
@@ -418,13 +416,13 @@
 
               <div class="row justify-content-center">
                 <div class="p-5">
-                  <h2 class="text_primary my-5">Entendendo a regra
+                  <h2 class="text_primary my-5">Understanding the rule
                   </h2>
-                  <p>Primeiro de tudo, é preciso entender que “60-30-10” se tratam de porcentagem, definindo quais cores
-                    terão mais presença dentro de uma página. Esses valores são, de certa forma, imaginários, pois não
-                    tem como termos noção se estamos de fato usando, por exemplo, 60% de uma cor numa interface, mas a
-                    definição deles, nesses valores e ordem respectivamente, servem para entendermos a grandeza que uma
-                    cor vai estar presente. A partir disso, cada uma dessas porcentagens significa o seguinte:
+                  <p>First of all, you need to understand that “60-30-10” are a percentage, defining which colors
+                    will have more presence within a page. These values ​​are, in a way, imaginary, as they are not
+                    we can have an idea if we are actually using, for example, 60% of a color in an interface, but the
+                    definition of them, in these values ​​and order respectively, serve to understand the magnitude that a
+                    color will be present. From this, each of these percentages means the following:
                   </p>
                 </div>
               </div>
@@ -432,17 +430,17 @@
               <div class="row justify-content-center primary m-0 pt-4 pb-2 ">
                 <div class="col-lg-10 d-flex align-items-center">
                   <ul>
-                    <li>60% é a cor dominante, que terá mais presença dentro das interfaces.</li>
-                    <li>30% é a cor secundária, que servirá como contraste a cor de destaque, e trará a harmonia.</li>
-                    <li>10% é a cor de destaque, que comumente se trata da cor da marca, sendo direcionada aos elementos
-                      que merecem destaque, como botões, links e ícones.</li>
+                    <li>60% is the dominant color, which will have more presence within the interfaces.</li>
+                    <li>30% is the secondary color, which will serve as a contrast to the accent color, and bring harmony.</li>
+                    <li>10% is the accent color, which is commonly the brand color, being directed to the elements
+                      that deserve to be highlighted, such as buttons, links and icons.</li>
 
                   </ul>
                 </div>
               </div>
               <!---->
               <div class="row justify-content-center p-5">
-                <p>Agora pode estar com uma dúvida muito compreensível:</p>
+                <p>Now you may have a very understandable question:</p>
 
                 <div class="my-5 text-center ">
                   <hr class="accent" style="height: 2px;">
@@ -451,18 +449,18 @@
                   <hr class="accent" style="height: 2px;">
 
                 </div>
-                <p>Temos textos em cinza escuro e claro, cards também na cor cinza, imagens com cores variadas. De fato,
-                  em grande parte dos casos, uma interface dificilmente terá apenas três cores, mas dentro desse
-                  processo, não há a necessidade de listar, literalmente, todas as cores que serão utilizadas, pois
-                  podem haver diversas variações de uma mesma cor, como acontecem com os próprios textos, ou até mesmo
-                  com a interação realizada com o cursor em alguns componentes, e com relação às imagens, por mais que
-                  seja interessante seguir um padrão de identidade visual, esse é um elemento em que não há a
-                  necessidade de se contabilizar as cores.</p>
-                <p>Você vai reparar, aplicando e analisando produtos, que as cores dominantes mais comuns, na maior
-                  parte dos casos, vão ser a cor de fundo do site, que comumente é um branco, cinza claro, e às vezes
-                  preto ou cinza escuro em produtos que possuem modo noturno. Chamamos de primária nesse caso, pois é a
-                  cor que mais veremos no decorrer das páginas, e por ela ser o fator principal de contraste e harmonia
-                  com as outras que estão sobre essa.
+                <p>We have texts in dark and light gray, cards also in gray, images with different colors. In fact,
+                  In most cases, an interface will rarely have just three colors, but within this
+                  process, there is no need to list, literally, all the colors that will be used, as
+                  There may be several variations of the same color, as happens with the texts themselves, or even
+                  with the interaction carried out with the cursor in some components, and in relation to the images, however
+                  Although it is interesting to follow a visual identity standard, this is an element in which there is no
+                  need to account for colors.</p>
+                <p>You will notice, by applying and analyzing products, that the most common dominant colors, in most
+                  In some cases, it will be the website's background color, which is commonly white, light gray, and sometimes
+                  black or dark gray on products that have night mode. We call it primary in this case, as it is the
+                  color that we will see most throughout the pages, and because it is the main factor of contrast and harmony
+                  with the others that are on this one.
 
                 </p>
               </div>
@@ -471,12 +469,11 @@
                 </div>
               </div>
               <div class="row justify-content-center pt-3 px-5">
-                <h2 class="text_primary my-5 ">Como aplicar</h2> 
+                <h2 class="text_primary my-5 ">Application</h2> 
                 <div class="col-12 col-lg-6">
-                  <p>Como já comentei, você tem a cor da marca, e com isso você tem base para colorir diversos elementos
-                    e componentes, dando os destaques necessários. A seguir, o processo é testar cores que vão
-                    complementar a interface, e trazer o contraste ideal, não tirando o foco que os 10% devem possuir.
-                  </p>
+                  <p>As I already mentioned, you have the brand color, and with that you have a basis for coloring different elements
+                    and components, giving the necessary highlights. Next, the process is to test colors that will
+                    complement the interface, and bring the ideal contrast, without taking away the focus that the 10% should have.</p>
 
                 </div>
                 <div class="col-6 d-none d-sm-block">
@@ -489,22 +486,21 @@
                     </g>
                   </svg>
                 </div>
-                <p>A tendência de “light” e “dark” mode já passou a ser algo extremamente natural na grande maioria dos
-                  produtos, então seguir esse padrão para as interfaces que você está projetando pode ser bem assertivo.
-                </p>
-                <p>Agora que você entendeu como funciona, saber como aplicar fica muito mais fácil. Imagine que você
-                  está na etapa de wireframing, ainda construindo aqueles rascunhos em baixa ou média fidelidade, sem
-                  qualquer cor identidade aplicada nas suas construções. É nesse momento que você irá utilizar o
-                  60-30-10 para balancear perfeitamente e trazer harmonia às páginas.</p>
-                <span class="text_primary">Fonte: Alura | <a
+                <p>The trend of “light” and “dark” mode has already become something extremely natural in the vast majority of
+                  products, so following this standard for the interfaces you are designing can be very assertive.</p>
+                <p>Now that you understand how it works, knowing how to apply it becomes much easier. Imagine that you
+                  is in the wireframing stage, still building those sketches in low or medium fidelity, without
+                  any identity color applied to your constructions. This is when you will use the
+                  60-30-10 to perfectly balance and bring harmony to the pages.</p>
+                <span class="text_primary">Source: Alura | <a
                     href="https://www.alura.com.br/artigos/regra-60-30-10-ui-design" target="_blank"
                     class="text_accent">Regra 60-30-10 em UI Design</a></span>
 
 
                   </div>
                 <div class="row justify-content-center p-5">
-                  <h2 class="text_primary my-3 ">O App</h2> 
-                  <p>No video a seguir explico o objetivo desse projeto e mostro o desenvolvimento da aplicação. 
+                  <h2 class="text_primary my-3 ">The App</h2> 
+                  <p>In the following video I explain the objective of this project and show the development of the application. <em>Portuguese only</em> 
                   </p>
                   <div class="col-12 d-flex justify-content-center py-3">
 
@@ -687,7 +683,7 @@
               <!---->
               <div class="row justify-content-center primary m-0">
                 <div class="p-5">
-                  <h2>Fique com a gente!</h2>
+                  <h2>Stay with us!</h2>
                 </div>
               </div>
               <div class="row d-flex justify-content-center pb-5 primary m-0">
