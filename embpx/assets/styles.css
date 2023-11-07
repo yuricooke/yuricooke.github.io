@@ -1,0 +1,371 @@
+/* FONTS TYPE AND SIZE */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');    
+@import url('https://fonts.googleapis.com/css2?family=Armata&display=swap');
+
+
+:root{
+
+  --color1: #3c63ae;
+  --color2: #a8cd38;
+  --color3: #99643c;
+  --primary: var(--color1);
+
+
+}
+
+#hero, #intro, #certificacoes, #produtos, #clientes, #contato {
+  scroll-margin-top: 50px;
+
+}
+
+.color1{
+  background-color: var(--color1);
+}
+#color2{
+  background-color: var(--color2);
+}
+#color3{
+  background-color: var(--color3);
+}
+
+.text-color-1{
+  color: var(--color1);
+}
+
+.text-color-2{
+  color: var(--color2);
+}
+
+.text-color-3{
+  color: var(--color3);
+}
+
+
+h1 {
+    font-family: Armata;
+    margin: 0 0 5%;
+}
+h2 {
+    font-family: Armata;
+    margin: 0 0 2% ;
+
+}
+
+.card {
+  display: flex ;
+  height: 100%;
+}
+
+.carousel-item {
+  padding: 0 10%;
+}
+.card-carousel{
+  margin: 10px;
+  max-width: 150px;
+  max-height: 180px;
+  /*box-shadow: 0 2px 20px  rgba( 31, 38, 135, 0.37 );*/
+}
+.card-carousel img{
+  margin-left: 40px;
+}
+
+
+.mais-vendido {
+  font-size: 0.7rem;
+  background-color: rgba(2, 106, 9, 0.75);
+  margin-left: 2px;
+  text-transform: uppercase;
+  position: absolute; 
+  top: 10px; 
+  right: 5px; 
+  color: white;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/*----------------
+HERO
+-----------------*/
+.hero {
+  display: flex;
+  align-items: center;
+  height: 100dvh;
+  background-image: url(img/hero/exemplo1.jpg);
+  background-size: cover;
+
+  background-attachment: fixed;
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.produto{
+  position: relative;
+  height: 50vh;
+  background-image: url(img/hero/exemplo.jpg);
+  background-attachment: fixed;
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.bgHero {
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.1 );
+  color: #fff;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+}
+
+
+/*--------
+NAV
+*/
+
+.navbar a {
+  color: var(--color1) !important;
+}
+
+.navbar a:hover {
+  color: var(--color2) !important;
+}
+
+.active-nav-item {
+  margin-bottom: -4px;
+  border-bottom: 4px solid var(--color2); /* Your border styling */
+}
+
+
+.fb {
+
+  --b: 3px;   /* thickness of the border */
+  --c: rgb(0, 0, 0, 0.1);   /* color of the border */
+  --w: 25px;  /* width of border */
+  
+
+  border: var(--b) solid #0000; /* space for the border */
+  --_g: #0000 90deg,var(--c) 0;
+  --_p: var(--w) var(--w) border-box no-repeat;
+  background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g)) 100% 0    / var(--_p),
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--_g)) 0    100% / var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
+  
+}
+
+
+.fb-2 {
+
+  --b: 8px;   /* thickness of the border */
+  --c: #fff;   /* color of the border */
+  --w: 35px;  /* width of border */
+  
+
+  border: var(--b) solid #0000; /* space for the border */
+  --_g: #0000 90deg,var(--c) 0;
+  --_p: var(--w) var(--w) border-box no-repeat;
+  background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g)) 100% 0    / var(--_p),
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--_g)) 0    100% / var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
+  
+}
+
+
+.fb-3 {
+
+  --b: 3px;   /* thickness of the border */
+  --c: #a8cd38;   /* color of the border */
+  --w: 25px;  /* width of border */
+  
+  margin-left: -15px;
+  padding-left: 5px;
+  border: var(--b) solid #0000; /* space for the border */
+  --_g: #0000 90deg,var(--c) 0;
+  --_p: var(--w) var(--w) border-box no-repeat;
+  background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p);
+  
+}
+
+
+.fb-4 {
+
+  --b: 3px;   /* thickness of the border */
+  --c: rgba(247, 245, 245, 0.3);   /* color of the border */
+  --w: 25px;  /* width of border */
+  
+  margin-left: -15px;
+  padding-left: 5px;
+  border: var(--b) solid #0000; /* space for the border */
+  --_g: #0000 90deg,var(--c) 0;
+  --_p: var(--w) var(--w) border-box no-repeat;
+  background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p);
+  
+}
+
+
+.image_produto{
+  opacity: 0.1;
+  position: absolute;
+  display: flex;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  height: 50vh;
+}
+
+
+
+.produto:hover .image_produto {
+  opacity: 0.025;
+}
+
+.produto:hover {
+  color: antiquewhite;
+  opacity: 1;
+}
+
+
+.bg-clientes{
+  background: linear-gradient(90deg, var(--color1) 70%, #fff 70%);
+}
+
+
+/*
+BOTÕES
+*/
+
+
+/* Oulined  button*/
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+  border-width: 1px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+/* custom-styles.css */
+
+/* Define your custom primary color */
+.btn-primary {
+  color: #fff;
+  background-color: #3c63ae; 
+  border-color: #3c63ae; 
+}
+
+
+
+table .border-bottom{
+  border-bottom: 1px solid #cb7f04 !important;
+}
+.card-footer{
+  border: 0px #fff;
+}
+.modal-header,
+.modal-footer {
+  border: 0px #fff;
+
+}
+
+/* Lista Atuação */
+
+.list-atuacao ul {
+  list-style-type: none;
+  padding: 10px 5px ;
+}
+
+.list-atuacao li {
+    text-align: center;
+    padding: 10px 5px 10px ;
+    align-items: center;
+    margin-top: -2px;
+    gap: 16px;
+    border-top: 2px solid var(--color2);
+    border-bottom: 2px solid var(--color2);
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+  .list-atuacao ul li {
+    padding: 0;
+  }
+  
+}
+
+.qualidades ul {
+  list-style-type: none;
+}
+.qualidades li{
+  border-left: 4px solid antiquewhite;
+  margin-left: -20px;
+  padding-left: 10px;
+  font-size: 1.2rem;
+
+}
+
+
+
+/* Arrow & Hover Animation */
+#more-arrows {
+	width: 75px;
+  height: 65px;
+}
+
+* Define the polygon element */
+polygon {
+  fill: white;
+}
+
+/* Define the animation */
+@keyframes fillAnimation {
+  0% {
+    fill: white;
+  }
+  50% {
+    fill: rgb(255, 255, 255, 0.2);
+  }
+  100% {
+    fill: white;
+  }
+}
+
+/* Apply the animation to the polygon element */
+polygon {
+  animation: fillAnimation 2s ease-out infinite; /* Change the duration and timing function as needed */
+}
+
+.accordion-item {
+  border: 0px;
+  border-top: 2px solid var(--color2); /* Border on the top */
+  border-bottom: 2px solid var(--color2); /* Border on the bottom */
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--color1);
+  background-color: rgb(255, 255, 255, 0.2);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  
+}
+
+footer a {
+  color: var(--color2);
+}
+
+.modal-body h3{
+  margin-bottom: 20px;
+}
