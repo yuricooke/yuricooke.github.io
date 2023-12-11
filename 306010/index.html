@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>#603010 Generator</title>
+
+  <!-- CDN Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+  <!-- CSS theme styles -->
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/template.css">
+
+  <!-- google icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+  <!-- fontawesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <main>
+    <section id="navbar">
+      <div class="pt-3 pb-2 bg-dark shadow sticky-top ">
+        <div class="row justify-content-start px-5">
+          <div class="col-12 col-md-3 ">
+            <h1 class="text_neutral" style="font-size: 1.2rem;"><strong>
+                <nobr>#603010
+                  Generator</nobr>
+              </strong></h1>
+          </div>
+          <div class="col-12 col-md-6 text-center d-sm-block d-none ">
+            <p style="color: rgb(173, 172, 172) ;">Use spacebar to generate a new palette</p>
+          </div>
+          <div class="col-12 col-md-3 d-flex justify-content-end ">
+            <p style="color: rgb(173, 172, 172) ;">Dev | Yuri Cooke: <a class="text-white" target="_blank"
+                href="https://www.linkedin.com/yuricooke">
+                <i class="fa fa-linkedin-square" style="font-size:20px"></i></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="Generator">
+      <div class="row px-0">
+
+        <!-- COLUNA ESQUERDA - DASHBOARD-->
+
+        <div class="col-lg-7 neutral shadow px-0" id="dashboard">
+          <div class="container-fluid p-0 scrollable-column">
+            <div class="palette-display shadow">
+              <div class="rounded d-flex justify-content-center text-center">
+                <div class="palette-cell neutral">
+                  <h5 id="neutral" onclick="editColor('neutral')"></h5>
+                  <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="editColor('neutral')"
+                    title="edit"><span class="material-symbols-outlined">
+                      edit
+                    </span></button>
+                  <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="changeColor('neutral')"
+                    title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
+                  <button class="btn btn-sm rounded-pill btn-tools neutral" onclick="saveColor('--neutral')"
+                    title="save"><span class="material-symbols-outlined">favorite</span></button>
+                  <hr class="mx-5">
+                  <h4>60%</h4>
+                  <h5>NEUTRAL</h5>
+                </div>
+                <div class="palette-cell primary">
+                  <h5 id="primary" onclick="editColor('primary')"></h5>
+                  <button class="btn btn-sm rounded-pill btn-tools primary" onclick="editColor('primary')"
+                    title="edit"><span class="material-symbols-outlined">
+                      edit
+                    </span></button>
+                  <button class="btn btn-sm rounded-pill btn-tools primary" onclick="changeColor('primary')"
+                    title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
+                  <button class="btn btn-sm rounded-pill btn-tools primary" onclick="saveColor('--primary')"
+                    title="save"><span class="material-symbols-outlined">favorite</span></button>
+                  <hr class="mx-5">
+                  <h4>30%</h4>
+                  <h5>PRIMARY</h5>
+                </div>
+                <div class="palette-cell accent">
+                  <h5 id="accent" onclick="editColor('accent')"></h5>
+                  <nobr><button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="editColor('accent')"
+                      title="edit"><span class="material-symbols-outlined">
+                        edit
+                      </span></button>
+                    <button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="changeColor('accent')"
+                      title="refresh"><span class="material-symbols-outlined">rotate_left</span></button>
+                    <button class="btn btn-sm rounded-pill btn-tools accent mx-0" onclick="saveColor('--accent')"
+                      title="save"><span class="material-symbols-outlined">favorite</span></button>
+                  </nobr>
+                  <hr class="mx-5">
+                  <h4>10%</h4>
+                  <h5>ACCENT</h5>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center px-5">
+              <div class="row py-lg-3 justify-content-start align-items-center">
+                <div class="col-md-12">
+                  <small><span class="material-symbols-outlined ">
+                      priority_high
+                    </span>Light mode is pre-set. To try dark themes, edit the Neutral value with a darker color
+                  </small>
+                </div>
+              </div>
+              <div class="row py-lg-3 text-center justify-content-center align-items-center">
+                <div class="my-3 d-flex justify-content-end align-items-center">
+                  <button class="btn accent btn-rounded  d-inline-flex mx-2 " onclick="themeColors()">
+                    <span class="material-symbols-outlined">rotate_left</span> &nbsp;NEW PALETTE
+                  </button>
+                  <button class="btn primary btn-rounded  d-inline-flex" onclick="saveButtonPalette()"><span
+                      class="material-symbols-outlined">favorite</span> &nbsp;
+                    SAVE
+                    PALETTE</button>
+                </div>
+              </div>
+              <div class="row text-center justify-content-between align-items-center mb-5 px-3">
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne">
+                        Colors
+                      </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                      aria-labelledby="panelsStayOpen-headingOne">
+                      <div class="accordion-body">
+                        <table id="myColorTable" class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>
+                                <div id="color-display"></div>
+                              </th>
+                              <th>Color</th>
+                              <th>Hex</th>
+                              <th>Delete</th>
+                              <th>Select</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Rows will be dynamically added here -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                      <button class="accordion-button " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo">
+                        Palettes
+                      </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+                      aria-labelledby="panelsStayOpen-headingTwo">
+                      <div class="accordion-body">
+                        <table id="myPaletteTable" class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Paleta</th>
+                              <th>Neutral</th>
+                              <th>Primary</th>
+                              <th>Accent</th>
+                              <th>Delete</th>
+                              <th>Select</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Rows will be dynamically added here -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                      <button class="accordion-button " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThree">
+                        Images
+                      </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+                      aria-labelledby="panelsStayOpen-headingThree">
+                      <div class="accordion-body">
+                        <div class="row justify-content-center my-3">
+                          <div class="col-lg-5">
+
+                            <div class="input-group mb-3">
+                              <input type="text" class="form-control" id="customTag" placeholder="escolha um tema"
+                                aria-label="insira um tema para buscar imagens" aria-describedby="button-addon"
+                                onkeydown="handleEnterKey(event)">
+                              <button class="btn accent" onclick="updateCustomImage()" type="button"
+                                id="button-addon">Buscar</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('fashion')">Fashion</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('dogs')">Dogs</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('cats')">Cats</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('hikes')">Hike</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('beach')">Beach</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('party')">Party</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('decor')">Decor</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('sports')">Sports</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('food')">Food</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('urban')">Urban</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('travel')">Travel</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('nature')">Nature</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('architecture')">Architecture</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('films')">Films</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('music')">Music</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('people')">People</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('animals')">Animals</button>
+                          <button class="btn btn-sm primary rounded-pill my-2 "
+                            onclick="updateImages('walpapers')">Walpapers</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUNA DIREITA - TEMPLATE-->
+
+        <div class="col-lg-5" id="template">
+          <div class="container-fluid" class="scrollable-column">
+            <div class="container">
+              <div class="row justify-content-center mt-4 mb-5 ">
+                <h3 class="text_primary">Template</h3>
+                <p>Check out the preview of the application of colors in the template.</p>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid my-5">
+            <div class="container px-0 neutral shadow ">
+              <!---->
+              <div class="row justify-content-center m-0 ">
+                <div class="bg-dark py-1 rounded-top">
+                  <div class="d-flex justify-content-start">
+                    <div class="browser-circle red m-1"></div>
+                    <div class="browser-circle yellow m-1"></div>
+                    <div class="browser-circle green m-1"></div>
+                  </div>
+                </div>
+              </div>
+              <!---->
+              <div class="row justify-content-center m-0">
+                <div class="hero p-5">
+                  <h1 class="textHero p-1">Welcome!</h1>
+                </div>
+                <div class="p-5">
+                  <h2 class="text_primary mb-5">60|30|10 rule</h2>
+                  <p>How do you usually organize color palettes within the digital products you are
+                    involved? It is quite common, especially when we are starting out in the area, not to distribute as
+                    ideal colors in the elements and components that will be present in the interfaces, such as texts,
+                    illustrations and buttons. All of this must be designed in such a way that all product pages have
+                    the
+                    very evident identity, and that they remain harmonious.
+                  </p>
+                  <p>There are several techniques and methods for working with colors, and one of them is the<strong>
+                      60-30-10 Rule</strong> which helps to correctly divide the color composition in an interface.
+                    Despite
+                    of being a technique that is present mainly in architecture and interior design, which
+                    are areas that do not work with digital products, such as websites and apps, it is still possible to
+                    use this
+                    rule when building interfaces, since we use colors to highlight or not different
+                    elements.</p>
+                  <div class="d-flex justify-content-end">
+                    <button class="btn btn-pill accent " onclick="themeColors()">try new colors!!!</button>
+                  </div>
+                </div>
+              </div>
+              <!---->
+              <div class="row justify-content-center px-2 py-4">
+                <div class="col-lg-4 py-3">
+                  <div class="card borderNeutral shadow">
+                    <div class="card-img">
+                      <img src="https://source.unsplash.com/random/600x400/?computer&1" class="card-img-top img-fluid"
+                        alt="Image 1">
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title text_primary">Product 1</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                      <div class="row justify-content-end align-items-center">
+                        <div class="d-flex justify-content-end">
+                          <h5 class="py-1 text_neutral" id="totalPrice1"></h5>
+                        </div>
+                      </div>
+                      <div class="row justify-content-end align-items-center">
+                        <!--
+                        <div class="col-1 d-flex justify-content-end">
+                          <span class="material-symbols-outlined text-danger">delete</span>
+                        </div>-->
+                        <div class="col-6 col-lg-4 d-flex justify-content-end">
+                          <button class="btn btn-sm accent " onclick="decrementQuantity(0)">-</button>
+                          <input id="form1" min="0" name="quantity" value="1" type="number"
+                            class="form-control form-control-sm" />
+                          <button class="btn btn-sm accent" onclick="incrementQuantity(0)">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 py-3">
+                  <div class="card borderNeutral shadow">
+                    <div class="card-img">
+                      <img src="https://source.unsplash.com/random/600x400/?computer&2" class="card-img-top img-fluid"
+                        alt="Image 2">
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title text_primary">Product 2</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <div class="row justify-content-end align-items-center">
+                        <div class="d-flex justify-content-end">
+                          <h5 class="py-1 text_neutral" id="totalPrice2"></h5>
+                        </div>
+                      </div>
+                      <div class="row justify-content-end align-items-center">
+                        <!--<div class="col-1 d-flex justify-content-end">
+                          <span class="material-symbols-outlined text-danger">delete</span>
+                        </div>-->
+                        <div class="col-6 col-lg-4 d-flex justify-content-end">
+                          <button class="btn btn-sm accent px-2" onclick="decrementQuantity(1)">-</button>
+                          <input id="form2" min="0" name="quantity" value="1" type="number"
+                            class="form-control form-control-sm w-100" />
+                          <button class="btn btn-sm accent px-2" onclick="incrementQuantity(1)">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 py-3">
+                  <div class="card borderNeutral shadow">
+                    <div class="card-img">
+                      <img src="https://source.unsplash.com/random/600x400/?computer&3" class="card-img-top img-fluid"
+                        alt="Image 3">
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title text_primary">Product 3</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <div class="row justify-content-end align-items-center">
+                        <div class="d-flex justify-content-end">
+                          <h5 class="py-1 text_neutral" id="totalPrice3"></h5>
+                        </div>
+                      </div>
+                      <div class="row justify-content-end align-items-center">
+                        <!--<div class="col-1 d-flex justify-content-end">
+                          <span class="material-symbols-outlined text-danger">delete</span>
+                        </div>-->
+                        <div class="col-6 col-lg-4 d-flex justify-content-end">
+                          <button class="btn btn-sm accent px-2" onclick="decrementQuantity(2)">-</button>
+                          <input id="form3" min="0" name="quantity" value="1" type="number"
+                            class="form-control form-control-sm w-100" />
+                          <button class="btn btn-sm accent px-2" onclick="incrementQuantity(2)">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!---->
+
+              <div class="row justify-content-center">
+                <div class="p-5">
+                  <h2 class="text_primary my-5">Understanding the rule
+                  </h2>
+                  <p>First of all, you need to understand that “60-30-10” are a percentage, defining which colors
+                    will have more presence within a page. These values ​​are, in a way, imaginary, as they are not
+                    we can have an idea if we are actually using, for example, 60% of a color in an interface, but the
+                    definition of them, in these values ​​and order respectively, serve to understand the magnitude that
+                    a
+                    color will be present. From this, each of these percentages means the following:
+                  </p>
+                </div>
+              </div>
+              <div class="row justify-content-center primary m-0 pt-4 pb-2 ">
+                <div class="col-lg-10 d-flex align-items-center">
+                  <ul>
+                    <li>60% is the dominant color, which will have more presence within the interfaces.</li>
+                    <li>30% is the secondary color, which will serve as a contrast to the accent color, and bring
+                      harmony.</li>
+                    <li>10% is the accent color, which is commonly the brand color, being directed to the elements
+                      that deserve to be highlighted, such as buttons, links and icons.</li>
+
+                  </ul>
+                </div>
+              </div>
+              <!---->
+              <div class="row justify-content-center p-5">
+                <p>Now you may have a very understandable question:</p>
+
+                <div class="my-5 text-center ">
+                  <hr class="accent" style="height: 2px;">
+                  <p class="d-flex align-items-center justify-content-center text_accent "><strong> ... e as outras
+                      cores na interface? ...</strong></p>
+                  <hr class="accent" style="height: 2px;">
+                </div>
+                <p>We have texts in dark and light gray, cards also in gray, images with different colors. In fact,
+                  In most cases, an interface will rarely have just three colors, but within this
+                  process, there is no need to list, literally, all the colors that will be used, as
+                  There may be several variations of the same color, as happens with the texts themselves, or even
+                  with the interaction carried out with the cursor in some components, and in relation to the images,
+                  however
+                  Although it is interesting to follow a visual identity standard, this is an element in which there is
+                  no
+                  need to account for colors.</p>
+                <p>You will notice, by applying and analyzing products, that the most common dominant colors, in most
+                  In some cases, it will be the website's background color, which is commonly white, light gray, and
+                  sometimes
+                  black or dark gray on products that have night mode. We call it primary in this case, as it is the
+                  color that we will see most throughout the pages, and because it is the main factor of contrast and
+                  harmony
+                  with the others that are on this one.
+
+                </p>
+              </div>
+              <div class="row justify-content-center parallax m-0">
+                <div class="overlay p-0 m-0 ">
+                </div>
+              </div>
+              <div class="row justify-content-center pt-3 px-5">
+                <h2 class="text_primary my-5 ">Application</h2>
+                <div class="col-12 col-lg-6">
+                  <p>As I already mentioned, you have the brand color, and with that you have a basis for coloring
+                    different elements
+                    and components, giving the necessary highlights. Next, the process is to test colors that will
+                    complement the interface, and bring the ideal contrast, without taking away the focus that the 10%
+                    should have.</p>
+                </div>
+                <div class="col-6 d-none d-sm-block">
+                  <svg id="visual" class="svg-icon-2" viewBox="0 0 900 900" width="250" height="auto"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <g transform="translate(347.46536985400667 430.96895164134)">
+                      <path
+                        d="M403.9 -191C485.1 -92.6 486.1 94.3 405.4 205.2C324.8 316.2 162.4 351.1 60.9 315.9C-40.6 280.8 -81.2 175.5 -140.4 77C-199.6 -21.5 -277.3 -113.2 -257 -176.4C-236.7 -239.7 -118.4 -274.3 21.5 -286.7C161.4 -299.2 322.7 -289.3 403.9 -191"
+                        fill="#001122"></path>
+                    </g>
+                  </svg>
+                </div>
+                <p>The trend of “light” and “dark” mode has already become something extremely natural in the vast
+                  majority of
+                  products, so following this standard for the interfaces you are designing can be very assertive.</p>
+                <p>Now that you understand how it works, knowing how to apply it becomes much easier. Imagine that you
+                  is in the wireframing stage, still building those sketches in low or medium fidelity, without
+                  any identity color applied to your constructions. This is when you will use the
+                  60-30-10 to perfectly balance and bring harmony to the pages.</p>
+                <span class="text_primary">Source: Alura | <a
+                    href="https://www.alura.com.br/artigos/regra-60-30-10-ui-design" target="_blank"
+                    class="text_accent">Regra 60-30-10 em UI Design</a></span>
+              </div>
+              <div class="row justify-content-center p-5">
+                <h2 class="text_primary my-3 ">The App</h2>
+                <p>In the following video I explain the objective of this project and show the development of the
+                  application. <em>Portuguese only</em>
+                </p>
+                <div class="col-12 d-flex justify-content-center py-3">
+                  <iframe class="frame" width="560" height="315"
+                    src="https://www.youtube.com/embed/7v2VJduPuAI?si=iHJnLRotRsUQIekO" title="Apresentação do projeto"
+                    frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+              </div>
+              <!---->
+              <div class="row justify-content-center">
+                <div id="myCarousel" class="carousel slide neutral py-5">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-5 d-none d-lg-block">
+                          <div class="card-carousel">
+                            <div class="card-body">
+                              <div class="row d-flex justify-content-start pb-3">
+                                <div class="col-4">
+                                  <img src="https://source.unsplash.com/random/200x200/?man&97"
+                                    class="card-img-top user-mask" alt="Consumer Image 1">
+                                </div>
+                                <div class="col-6">
+                                  <h5 class="card-title mb-0">
+                                    <nobr>Luke Skywalker</nobr>
+                                  </h5>
+                                  <span class="location">Tatooine</span>
+                                  <div class="rating text_accent">
+                                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row pb-3">
+                                <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                          <div class="card-carousel">
+                            <div class="card-body">
+                              <div class="row d-flex justify-content-start pb-3">
+                                <div class="col-lg-4">
+                                  <img src="https://source.unsplash.com/random/200x200/?darth"
+                                    class="card-img-top user-mask" alt="Consumer Image 1">
+                                </div>
+                                <div class="col-lg-6">
+                                  <h5 class="card-title mb-0">
+                                    <nobr>Lord Vader</nobr>
+                                  </h5>
+                                  <span class="location">Death Star</span>
+                                  <div class="rating text_accent">
+                                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row pb-3">
+                                <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-5 d-none d-lg-block">
+                          <div class="card-carousel">
+                            <div class="card-body">
+                              <div class="row d-flex justify-content-start pb-3">
+                                <div class="col-4">
+                                  <img src="https://source.unsplash.com/random/200x200/?face&5"
+                                    class="card-img-top user-mask" alt="Consumer Image 1">
+                                </div>
+                                <div class="col-6">
+                                  <h5 class="card-title mb-0">Novinho</h5>
+                                  <span class="location">Bangkok, THA</span>
+                                  <div class="rating text_accent">
+                                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row pb-3">
+                                <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                          <div class="card-carousel">
+                            <div class="card-body">
+                              <div class="row d-flex justify-content-start pb-3">
+                                <div class="col-lg-4">
+                                  <img src="https://source.unsplash.com/random/200x200/?face&6"
+                                    class="card-img-top user-mask" alt="Consumer Image 1">
+                                </div>
+                                <div class="col-lg-6">
+                                  <h5 class="card-title mb-0">Mama</h5>
+                                  <span class="location">New York, USA</span>
+                                  <div class="rating text_accent">
+                                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row pb-3">
+                                <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-5 d-none d-lg-block">
+                          <div class="card-carousel">
+                            <div class="card-body">
+                              <div class="row d-flex justify-content-start pb-3">
+                                <div class="col-4">
+                                  <img src="https://source.unsplash.com/random/200x200/?face&15"
+                                    class="card-img-top user-mask" alt="Consumer Image 1">
+                                </div>
+                                <div class="col-6">
+                                  <h5 class="card-title mb-0">João</h5>
+                                  <span class="location">Salvado, BRA</span>
+                                  <div class="rating text_accent">
+                                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row pb-3">
+                                <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                          <div class="card-carousel">
+                            <div class="card-body">
+                              <div class="row d-flex justify-content-start pb-3">
+                                <div class="col-lg-4">
+                                  <img src="https://source.unsplash.com/random/200x200/?face&16"
+                                    class="card-img-top user-mask" alt="Consumer Image 1">
+                                </div>
+                                <div class="col-lg-6">
+                                  <h5 class="card-title mb-0">Alice</h5>
+                                  <span class="location">Mexico City, MEX</span>
+                                  <div class="rating text_accent">
+                                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row pb-3">
+                                <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev text_accent" type="button" data-bs-target="#myCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!---->
+            <div class="row justify-content-center primary m-0">
+              <div class="p-5">
+                <h2>Stay with us!</h2>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center pb-5 primary m-0">
+              <div class="col-lg-10 neutral shadow p-5">
+                <ul class="nav d-flex justify-content-center">
+                  <li class="nav-item ">
+                    <button class="btn primary btn-rounded mt-1 nav-link active mx-3" id="login-tab"
+                      data-bs-toggle="tab" href="#login">&nbsp; Login&nbsp; </button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="btn primary btn-rounded mt-1 nav-link mx-3" id="register-tab" data-bs-toggle="tab"
+                      href="#register">Register</button>
+                  </li>
+                </ul>
+                <div class="tab-content mt-4">
+                  <div class="tab-pane fade show active" id="login">
+                    <form>
+                      <div class="mb-3">
+                        <label for="login-email" class="form-label">Email or Username</label>
+                        <input type="text" class="form-control" id="login-email"
+                          placeholder="Enter your email or username">
+                      </div>
+                      <div class="mb-3">
+                        <label for="login-password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="login-password"
+                          placeholder="Enter your password">
+                      </div>
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember-me">
+                        <label class="form-check-label" for="remember-me">Remember me</label>
+                        <a href="#" style="margin-left: 15px ;">Forgot password?</a>
+                      </div>
+                      <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn accent">Sign In</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="tab-pane fade" id="register">
+                    <form>
+                      <div class="mb-3">
+                        <label for="register-name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="register-name" placeholder="Enter your name">
+                      </div>
+                      <div class="mb-3">
+                        <label for="register-username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="register-username"
+                          placeholder="Enter your username">
+                      </div>
+                      <div class="mb-3">
+                        <label for="register-email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="register-email" placeholder="Enter your email">
+                      </div>
+                      <div class="mb-3">
+                        <label for="register-password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="register-password"
+                          placeholder="Enter your password">
+                      </div>
+                      <div class="mb-3">
+                        <label for="register-password-repeat" class="form-label">Repeat Password</label>
+                        <input type="password" class="form-control" id="register-password-repeat"
+                          placeholder="Repeat your password">
+                      </div>
+                      <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn accent">Register</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha384-D+ix8/iCrHx9NA4cCtp5jbi0YPov0eqx1H2sijQsJ3n7Fd7l5RE7PrhjxU9tnxVh"
+    crossorigin="anonymous"></script>
+
+
+  <!-- Bootstrap Bundle with Popper.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!--<script src="assets/js/themes.js"></script>-->
+  <script src="assets/js/colorTheme.js"></script>
+  <script src="assets/js/colors.js"></script>
+  <script src="assets/js/palettes.js"></script>
+  <script src="assets/js/methods.js"></script>
+  <script src="assets/js/images.js"></script>
+
+  <!--script src="prices.js"></script-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
+    integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>
