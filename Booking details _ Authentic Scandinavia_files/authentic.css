@@ -20880,39 +20880,7 @@ experience--box .exp-tag {
     }
 }
 
-
 /* New side panel */
-
-.legacy-grid {
-
-    padding-left: 15px;
-    padding-right: 15px
-}
-
-@media (min-width: 768px) {
-    .legacy-grid {
-        width: 83.33333%;
-        /* Matches col-sm-10 */
-        margin-left: 8.33333%;
-    }
-}
-
-@media (min-width: 992px) {
-    .legacy-grid {
-        width: 66.66667%;
-        /* Matches col-md-8 */
-        margin-left: 16.66667%;
-    }
-}
-
-@media (min-width: 1200px) {
-
-    .legacy-grid {
-        width: 66.66667%;
-        /* Matches col-lg-8 */
-        margin-left: 16.66667%;
-    }
-}
 
 .newsidepanel-grid {
     padding-left: 15px;
@@ -20951,11 +20919,6 @@ experience--box .exp-tag {
     padding-top: 60px;
 }
 
-@media (max-width: 992px) {
-    .newsidepanel.booking--details {
-        padding-top: 120px;
-    }
-}
 
 .newsidepanel.booking--details--title {
     display: none;
@@ -20967,11 +20930,18 @@ experience--box .exp-tag {
     right: 0;
     max-width: 420px;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .newsidepanel.sidepanel {
     display: block;
+}
+
+.newsidepanel__payment.sidepanel {
+    display: block;
+    position: relative;
+    max-width: 100%;
+    margin: 24px 0;
 }
 
 .sidepanel * {
@@ -20983,11 +20953,6 @@ experience--box .exp-tag {
     background-color: #00253D;
 }
 
-@media (max-width: 575px) {
-    .sidepanel__header {
-        padding: 12px 20px;
-    }
-}
 
 .sidepanel__header-wrapper {
     display: flex;
@@ -20999,12 +20964,6 @@ experience--box .exp-tag {
     color: #fff;
     font-weight: 700;
     margin: 0;
-}
-
-@media (max-width: 575px) {
-    .sidepanel__title {
-        font-size: 18px;
-    }
 }
 
 .sidepanel__body {
@@ -21020,67 +20979,8 @@ experience--box .exp-tag {
     gap: 24px;
 }
 
-@media (max-width: 991px) {
-    .sidepanel {
-        position: relative;
-        max-width: 100%;
-        width: 100%;
-        height: 100%;
-        z-index: 1000;
-    }
-
-    .sidepanel.show {
-        position: relative;
-        max-width: 100%;
-        width: 100%;
-        z-index: 1000;
-    }
-
-    .sidepanel__body {
-        height: 0%;
-        padding: 0px 20px;
-
-        transition: all 0.3s ease-in;
-    }
-
-    .sidepanel__body.show {
-
-        height: 100%;
-        padding: 24px 20px;
-        transition: all 0.3s ease-in;
-
-    }
 
 
-    .sidepanel__header-wrapper,
-    .sidepanel__body-wrapper {
-        width: 83.33333%;
-        /* Matches col-sm-10 */
-        margin-left: 8.33333%;
-
-    }
-}
-
-@media (max-width: 991px) {
-
-    .sidepanel__header-wrapper,
-    .sidepanel__body-wrapper {
-        width: 83.33333%;
-        /* Matches col-sm-10 */
-        margin-left: 8.33333%;
-    }
-
-}
-
-@media (max-width: 767px) {
-
-    .sidepanel__header-wrapper,
-    .sidepanel__body-wrapper {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
 
 .sidepanel__body hr {
     width: 100%;
@@ -21094,6 +20994,7 @@ experience--box .exp-tag {
     flex-direction: column;
     gap: 16px;
 }
+
 
 .sidepanel__extras,
 .sidepanel__travellers,
@@ -21255,6 +21156,12 @@ experience--box .exp-tag {
     justify-content: flex-end;
 }
 
+.sidepanel__price-details-title-currency {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
 
 .sidepanel__change-details {
     display: flex;
@@ -21378,7 +21285,118 @@ experience--box .exp-tag {
     /* Prevent interaction with the arrow */
 }
 
+.sidepanel__price-details-select-mobile {
+    position: relative;
+}
+
+.sidepanel__select-currency-mobile {
+    appearance: none;
+    /* Removes default browser styles */
+    -webkit-appearance: none;
+    /* For Safari */
+    -moz-appearance: none;
+    /* For Firefox */
+    width: fit-content;
+    /* Full width */
+    background-color: #fff;
+    /* Background color */
+    color: #00253D;
+    /* Text color */
+    border: 1px solid #fff;
+    /* Border styling */
+    padding: 0 18px 0 0;
+    /* Add padding for the arrow */
+    font-size: 16px;
+    /* Font size */
+    font-weight: 700;
+    /* Bold font */
+    cursor: pointer;
+    /* Pointer cursor */
+}
+
+.sidepanel__select-currency-mobile:focus-visible {
+    outline: none;
+    /* Remove outline when focused */
+    border-color: #ccc;
+    /* Add focus border color */
+}
+
+.select-currency-mobile__arrow {
+    position: absolute;
+    right: 0px;
+    /* Position near the right edge */
+    top: 50%;
+    transform: translateY(-50%);
+    /* Center the arrow vertically */
+    width: 18px;
+    /* Adjust width */
+    pointer-events: none;
+    /* Prevent interaction with the arrow */
+}
+
+
+/* Estilo para tornar o sidepanel "sticky" */
+.sidepanel.sticky-top {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    /* Ajuste conforme necessário para garantir que o sidepanel fique acima de outros elementos */
+}
+
 @media (max-width: 991px) {
+    .newsidepanel.booking--details {
+        padding-top: 120px;
+    }
+
+    .sidepanel {
+        position: relative;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .sidepanel.show {
+        position: relative;
+        max-width: 100%;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .sidepanel__header-wrapper,
+    .sidepanel__body-wrapper {
+        width: 83.33333%;
+        /* Matches col-sm-10 */
+        margin-left: 8.33333%;
+    }
+
+
+    .sidepanel__body {
+        height: 0%;
+        padding: 0px 20px;
+
+        transition: all 0.3s ease-in;
+    }
+
+    .sidepanel__body.show {
+        height: 100%;
+        padding: 24px 20px;
+        transition: all 0.3s ease-in;
+    }
+
+    #sidepanel-body[hidden] {
+        display: none;
+    }
+
+
+    .sidepanel__header-wrapper,
+    .sidepanel__body-wrapper {
+        width: 83.33333%;
+        /* Matches col-sm-10 */
+        margin-left: 8.33333%;
+
+    }
+
     .select-currency__wrapper {
         display: none;
     }
@@ -21388,16 +21406,36 @@ experience--box .exp-tag {
     cursor: pointer;
 }
 
+.sidepanel__accordion[aria-expanded="false"] > .sidepanel__accordion-arrow {
+    transform: rotate(0deg); 
+}
+
+.sidepanel__accordion[aria-expanded="true"] > .sidepanel__accordion-arrow {
+    transform: rotate(180deg); 
+}
+
+.sidepanel__accordion-arrow {
+    transition: transform 0.3s ease;
+    width: 24px;
+    height: auto;
+}
+
 @media (min-width: 992px) {
     .sidepanel__accordion {
         display: none;
     }
+
+    .sidepanel__price-details-select-mobile {
+        display: none;
+    }
 }
 
-/* Estilo para tornar o sidepanel "sticky" */
-.sidepanel.sticky-top {
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    /* Ajuste conforme necessário para garantir que o sidepanel fique acima de outros elementos */
+@media (max-width: 767px) {
+
+    .sidepanel__header-wrapper,
+    .sidepanel__body-wrapper {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
