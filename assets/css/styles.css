@@ -1,0 +1,87 @@
+/* --- 
+styles.css
+
+Principais estilos da aplicação 
+
+1 - Fontes 
+2 - Cores
+--- */
+
+
+/* 1 - Fontes */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');    
+@import url('https://fonts.googleapis.com/css2?family=Armata&display=swap');
+
+h1, h2, h3, h5 {
+    font-family: Armata;
+}
+h5{
+  font-size: 1.2rem;
+}
+
+.scrollable-column {
+  height: 100dvh; 
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: sticky;
+  top: 0;
+}
+
+.btn-tools {
+    background-color: transparent;
+
+    &:hover {
+        box-shadow: 0px 0 0 4px var(--accent);
+        color: var(--accent-contrast);
+      }
+    
+      &:active {
+        box-shadow: 0px 0 0 4px var(--primary);
+    
+      }
+
+}
+
+
+/* 2- cores */
+:root{
+
+  --primary: " ";
+  --accent: " ";
+  --neutral: " ";
+}
+
+
+.primary{
+    background-color: var(--primary);
+    color: var(--primary-contrast);
+}
+
+.text_primary{
+    color: var(--primary);
+}
+
+.accent{
+    background-color: var(--accent);
+    color: var(--accent-contrast);
+}
+
+.text_accent{
+    color: var(--accent);
+}
+
+.neutral{
+    background-color: var(--neutral);
+    color: var(--neutral-contrast);
+}
+
+.text_neutral{
+    color: var(--neutral);
+}
+
+.text_hero{
+  color:var(--primary-contrast)
+}
+
+/* 3 - tabela */
